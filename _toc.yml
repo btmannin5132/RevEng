@@ -11,6 +11,8 @@ chapters:
   title: RE Process
 - file: lightbulb
 - file: uc-arduino
+- file: appliance_project
 - file: troubleshooting
   title: The 5 Whys
+- file: stuck
 
