@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: index
 title: Welcome
 chapters:
 - file: syllabus
@@ -11,4 +11,6 @@ chapters:
   title: RE Process
 - file: lightbulb
 - file: uc-arduino
+- file: troubleshooting
+  title: The 5 Whys
 
