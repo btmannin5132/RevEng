@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Microcontorller Tutorial &#8212; ECE39595- Reverse Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'uc-arduino';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="ECE39595- Reverse Engineering - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="ECE39595- Reverse Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ECE39595!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">RE Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lightbulb.html">Lab1-LED Lightbulb</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng/issues/new?title=Issue%20on%20page%20%2Fuc-arduino.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/uc-arduino.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Microcontorller Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials-needed">Materials Needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure">Disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-arduino">Introduction to Arduino</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-information-on-an-arduino-and-using-the-arduino-ide">General information on an Arduino and using the Arduino IDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-microcontroller-systems-avrs">Advanced Microcontroller systems (AVRs)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-task">Primary Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-exercises">General Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio-and-digital-sensors-buttons">GPIO and Digital Sensors/Buttons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-diagram">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-sensors-for-control">Analog Sensors for Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-display">7-Segment Display</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-lcd-display">I2C LCD Display</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dc-motor-control-using-pwm">DC Motor Control Using PWM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-control-using-pwm">Servo Control Using PWM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-arduino-nano-in-reverse-engineering">Limitations of the Arduino Nano in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-disclosure-use-other-microcontrollers-in-the-future">Another Disclosure: Use other Microcontrollers in the future!</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="microcontorller-tutorial">
+<h1>Microcontorller Tutorial<a class="headerlink" href="#microcontorller-tutorial" title="Link to this heading">#</a></h1>
+<p>Ben Manning, Purdue University</p>
+<p>Last Modified: 2025-12-04</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lab, you will reverse-engineer and replicate key components of a
+basic appliance using an Arduino Nano. The goal is to explore common
+functionalities like sensor inputs, data display, and motor control,
+which are often found in consumer appliances. Each task includes wiring
+diagrams, sample code, and exercises to apply your knowledge. This
+hands-on approach simulates real-world reverse engineering, where you
+must modify existing systems and overcome limitations.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Interface with GPIO to control inputs and outputs.</p></li>
+<li><p>Implement digital and analog sensors to simulate user input.</p></li>
+<li><p>Display information using I2C displays.</p></li>
+<li><p>Communicate with multiple devices using I2C and UART protocols.</p></li>
+<li><p>Control DC brushed motors and servos using PWM.</p></li>
+<li><p>Understand the limitations of the Arduino Nano in
+reverse-engineering contexts.</p></li>
+</ul>
+</section>
+</section>
+<section id="materials-needed">
+<h2>Materials Needed<a class="headerlink" href="#materials-needed" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Arduino Nano</p></li>
+<li><p>Breadboard and jumper wires</p></li>
+<li><p>Resistors (<span class="math notranslate nohighlight">\(10k\Omega\)</span>, <span class="math notranslate nohighlight">\(220\Omega\)</span>)</p></li>
+<li><p>Push button</p></li>
+<li><p>Potentiometer</p></li>
+<li><p>7-segment display</p></li>
+<li><p>I2C LCD display (16x2)</p></li>
+<li><p>DC motor (brushed)</p></li>
+<li><p>L298N motor driver module</p></li>
+<li><p>Servo motor</p></li>
+<li><p>Ultrasonic sensor (HC-SR04)</p></li>
+<li><p>Power supply (5V)</p></li>
+</ul>
+</section>
+<section id="disclosure">
+<h2>Disclosure<a class="headerlink" href="#disclosure" title="Link to this heading">#</a></h2>
+<p>This lab is designed in the assumption that the learner has a general
+knowledge set of electronics and programming. The learner does not need
+to know the formatting needed for an Arduino or C specifically, but
+should be familiar with how functions are designed in programming.<br />
+<br />
+Schematics are not generally provided in this document. While there is a
+wiring guide to state what pins are used where, the user is assumed to
+know generally how standard devices are attached in a circuit. For
+example, a potentiometer will need to have an input voltage and common
+ground attached to outside pins for it to operate as a voltage divider.</p>
+</section>
+<section id="introduction-to-arduino">
+<h2>Introduction to Arduino<a class="headerlink" href="#introduction-to-arduino" title="Link to this heading">#</a></h2>
+<p>Arduino is an open-source electronics platform that simplifies the
+process of building and controlling electronics. The Arduino Nano, used
+in this lab, is a small, versatile board that includes digital and
+analog pins, PWM outputs, and communication protocols like I2C and UART.
+It is widely used in prototyping and reverse-engineering tasks due to
+its low cost and simplicity.</p>
+<section id="general-information-on-an-arduino-and-using-the-arduino-ide">
+<h3>General information on an Arduino and using the Arduino IDE<a class="headerlink" href="#general-information-on-an-arduino-and-using-the-arduino-ide" title="Link to this heading">#</a></h3>
+<p>If you do not have the Arduino IDE already, please download and install
+the environment. The Arduino IDE can be downloaded at not cost from
+Arduino LLC at
+<a class="reference internal" href="#www.arduino.cc/en/software"><span class="xref myst">www.arduino.cc/en/software</span></a>{.uri}.<br />
+<br />
+Functionally, an Arduino has two primary functions that must be inside
+of every program that is uploaded to it. The <strong>setup()</strong> function runs
+once and is used to initialize different parts of the microcontroller.
+After the <strong>setup()</strong> function, the <strong>loop()</strong> function runs essentially
+as a loop initialized with while(0==0), meaning that the program will
+run indefinitely until it is halted by turning the device off, or it
+runs into an error that causes it to crash.<br />
+<br />
+Inside of the Arduino IDE, there are a variety of examples and libraries
+that come pre-installed to assist you with your project at hand.
+<a class="reference internal" href="#arduino.cc"><span class="xref myst">arduino.cc</span></a>{.uri} also has a community tab with a forum and
+project hub that can likely assist with whatever issues you may have.</p>
+</section>
+<section id="advanced-microcontroller-systems-avrs">
+<h3>Advanced Microcontroller systems (AVRs)<a class="headerlink" href="#advanced-microcontroller-systems-avrs" title="Link to this heading">#</a></h3>
+<p>The main processor for the Arduino an Atmel ATMEGA328 chip which is in
+the AVR family of microprocessors. You can use the processor
+independently using more traditional programming similar to what you
+will experience in ECE362 at Purdue. This opens up the processor to a
+variety of other functions and applications that are partially limited
+on an Arduino due to Arduino LLC’s mission to make the microcontroller
+more user-friendly. There is also a lot of documentation available on
+programming AVRs if you wish to go down this road.</p>
+</section>
+</section>
+<section id="primary-task">
+<h2>Primary Task<a class="headerlink" href="#primary-task" title="Link to this heading">#</a></h2>
+<p>Reverse engineering plays a large role in electronics competition as a
+way to spin off a competitor’s product. Using an inexpensive
+microcrontroller can often allow for a competitor to cut costs by
+limiting the amount of analog electronics needed to make a system by
+simulating the analog nature of some devices. Recreating the device
+using a microcontroller can also assist you with understanding the
+process that a device goes through to complete a task.<br />
+<br />
+Your primary task for this lab is to create a functional replica of the
+thermostat that was reverse engineered in the beginning of the course
+using an Arduino Nano along with assorted sensors and switches. Document
+your processes and findings in your journal like you would any other
+lab.<br />
+\</p>
+</section>
+<section id="general-exercises">
+<h2>General Exercises<a class="headerlink" href="#general-exercises" title="Link to this heading">#</a></h2>
+<p>Below you will find a variety exercises that will introduce you to
+different functions of the Arduino Nano and assist you with some sample
+code to get moving on the primary task at hand. Use the exercises as you
+see fit to complete your task, and then as a resource in the future as
+you replicate other products.</p>
+</section>
+<section id="gpio-and-digital-sensors-buttons">
+<h2>GPIO and Digital Sensors/Buttons<a class="headerlink" href="#gpio-and-digital-sensors-buttons" title="Link to this heading">#</a></h2>
+<section id="objective">
+<h3>Objective<a class="headerlink" href="#objective" title="Link to this heading">#</a></h3>
+<p>Interface with basic digital sensors to simulate appliance control, such
+as buttons and indicators.</p>
+</section>
+<section id="wiring-diagram">
+<h3>Wiring Diagram<a class="headerlink" href="#wiring-diagram" title="Link to this heading">#</a></h3>
+<p>Connect a push button to digital pin <code class="docutils literal notranslate"><span class="pre">D2</span></code> and an LED to pin <code class="docutils literal notranslate"><span class="pre">D13</span></code>. Pull
+the button LOW with a 10K<span class="math notranslate nohighlight">\(\Omega\)</span> resistor. Use a 220<span class="math notranslate nohighlight">\(\Omega\)</span> resistor
+in series with the LED. Ensure that there is proper voltage and ground
+attached to all components.</p>
+</section>
+<section id="sample-code">
+<h3>Sample Code<a class="headerlink" href="#sample-code" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int buttonPin = 2;
+const int ledPin = 13;
+int buttonState = 0;
+
+void setup() {
+  pinMode(buttonPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+  if (buttonState == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}
+</pre></div>
+</div>
+</section>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Modify the code so that the LED toggles on and off with each button
+press, staying on after one press and turning off after another.</p>
+</section>
+</section>
+<section id="analog-sensors-for-control">
+<h2>Analog Sensors for Control<a class="headerlink" href="#analog-sensors-for-control" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Objective<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Use an analog sensor to simulate variable control, such as temperature
+adjustment or speed control.</p>
+</section>
+<section id="id2">
+<h3>Wiring Diagram<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Connect the center pin of a potentiometer to pin <code class="docutils literal notranslate"><span class="pre">A0</span></code> and an LED to pin
+<code class="docutils literal notranslate"><span class="pre">D9</span></code>. Use a 220<span class="math notranslate nohighlight">\(\Omega\)</span> resistor in series with the LED. Make sure the
+outside pins of the potentiometer are attached to 5V and GND of the
+Arduino.</p>
+</section>
+<section id="id3">
+<h3>Sample Code<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int potPin = A0;
+const int ledPin = 9;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = analogRead(potPin);
+  int outputValue = map(sensorValue, 0, 1023, 0, 255);
+  analogWrite(ledPin, outputValue);
+}
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Modify the code to control the frequency of a buzzer using the
+potentiometer instead of controlling an LED.</p>
+</section>
+</section>
+<section id="segment-display">
+<h2>7-Segment Display<a class="headerlink" href="#segment-display" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Objective<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Display numeric data, such as temperature or time, on a 7-segment
+display. Ensure that there is proper voltage and ground attached to all
+components.</p>
+</section>
+<section id="id6">
+<h3>Wiring Diagram<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Connect the 7-segment display to pins <code class="docutils literal notranslate"><span class="pre">D2</span></code> through <code class="docutils literal notranslate"><span class="pre">D8</span></code> using
+220<span class="math notranslate nohighlight">\(\Omega\)</span> resistors.</p>
+</section>
+<section id="id7">
+<h3>Sample Code<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int segments[] = {2, 3, 4, 5, 6, 7, 8};
+
+const byte digitPatterns[10] = {
+  B00111111, B00000110, B01011011, B01001111, B01100110,
+  B01101101, B01111101, B00000111, B01111111, B01101111
+};
+
+void setup() {
+  for (int i = 0; i &lt; 7; i++) {
+    pinMode(segments[i], OUTPUT);
+  }
+}
+
+void loop() {
+  displayDigit(3);  // Display number 3
+  delay(1000);
+}
+
+void displayDigit(int digit) {
+  byte pattern = digitPatterns[digit];
+  for (int i = 0; i &lt; 7; i++) {
+    digitalWrite(segments[i], bitRead(pattern, i));
+  }
+}
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>Exercise<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Modify the code to cycle through digits 0 to 9 on the 7-segment display
+every second.</p>
+</section>
+</section>
+<section id="i2c-lcd-display">
+<h2>I2C LCD Display<a class="headerlink" href="#i2c-lcd-display" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Objective<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Display information on an I2C LCD (16x2).</p>
+</section>
+<section id="id10">
+<h3>Wiring Diagram<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Connect the I2C LCD to the Arduino Nano’s <code class="docutils literal notranslate"><span class="pre">SDA</span></code> (pin <code class="docutils literal notranslate"><span class="pre">A4</span></code>) and <code class="docutils literal notranslate"><span class="pre">SCL</span></code>
+(pin <code class="docutils literal notranslate"><span class="pre">A5</span></code>). Ensure that there is proper voltage and ground attached to
+all components.</p>
+</section>
+<section id="id11">
+<h3>Sample Code<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address 0x27
+
+void setup() {
+  lcd.begin();
+  lcd.backlight();
+  lcd.print(&quot;Hello, World!&quot;);
+}
+
+void loop() {}
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3>Exercise<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>Modify the code to display “Appliance ON” when a button is pressed and
+“Appliance OFF” when the button is released.</p>
+</section>
+</section>
+<section id="dc-motor-control-using-pwm">
+<h2>DC Motor Control Using PWM<a class="headerlink" href="#dc-motor-control-using-pwm" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h3>Objective<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Control the speed and direction of a DC motor using PWM signals.</p>
+</section>
+<section id="id14">
+<h3>Wiring Diagram<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>Connect the motor to an L298N motor driver, and use pins <code class="docutils literal notranslate"><span class="pre">D9</span></code>, <code class="docutils literal notranslate"><span class="pre">D10</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">D11</span></code> for control. Ensure that there is proper voltage and ground
+attached to all components.</p>
+</section>
+<section id="id15">
+<h3>Sample Code<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int in1Pin = 9;
+const int in2Pin = 10;
+const int enablePin = 11;
+
+void setup() {
+  pinMode(in1Pin, OUTPUT);
+  pinMode(in2Pin, OUTPUT);
+  pinMode(enablePin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(in1Pin, HIGH);
+  digitalWrite(in2Pin, LOW);
+  analogWrite(enablePin, 128);  // Set motor speed
+  delay(2000);
+
+  analogWrite(enablePin, 0);  // Stop motor
+  delay(1000);
+}
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h3>Exercise<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>Modify the code so that the motor speed is controlled by a potentiometer
+connected to pin <code class="docutils literal notranslate"><span class="pre">A0</span></code>.</p>
+</section>
+</section>
+<section id="servo-control-using-pwm">
+<h2>Servo Control Using PWM<a class="headerlink" href="#servo-control-using-pwm" title="Link to this heading">#</a></h2>
+<section id="id17">
+<h3>Objective<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>Control a servo motor to move parts, like dials or levers, in an
+appliance.</p>
+</section>
+<section id="id18">
+<h3>Wiring Diagram<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>Connect the servo motor’s signal wire to pin <code class="docutils literal notranslate"><span class="pre">D9</span></code>. Ensure that there is
+proper voltage and ground attached to all components.</p>
+</section>
+<section id="id19">
+<h3>Sample Code<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>#include &lt;Servo.h&gt;
+
+Servo myServo;
+
+void setup() {
+  myServo.attach(9);
+}
+
+void loop() {
+  myServo.write(0);  // Rotate servo to 0 degrees
+  delay(1000);
+  myServo.write(90);  // Rotate to 90 degrees
+  delay(1000);
+}
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h3>Exercise<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>Modify the code to control the servo position using a potentiometer
+connected to pin <code class="docutils literal notranslate"><span class="pre">A0</span></code>.</p>
+</section>
+<section id="advanced-exercise">
+<h3>Advanced Exercise<a class="headerlink" href="#advanced-exercise" title="Link to this heading">#</a></h3>
+<p>Modify the code to control the servo WITHOUT the servo library.</p>
+</section>
+</section>
+<section id="limitations-of-the-arduino-nano-in-reverse-engineering">
+<h2>Limitations of the Arduino Nano in Reverse Engineering<a class="headerlink" href="#limitations-of-the-arduino-nano-in-reverse-engineering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Memory</strong>: The Nano’s 2KB SRAM may limit the complexity of the
+operations or number of libraries you can run simultaneously.</p></li>
+<li><p><strong>Processing Power</strong>: The 16 MHz clock speed may not suffice for
+real-time data processing or handling multiple sensor inputs
+concurrently.</p></li>
+<li><p><strong>Pin Count</strong>: The limited number of I/O pins (14 digital) restricts
+how many devices you can connect simultaneously.</p></li>
+<li><p><strong>No Native Wireless Communication</strong>: Wireless communication, such
+as Bluetooth or Wi-Fi, is not built-in and requires external
+modules.</p></li>
+</ul>
+</section>
+<section id="another-disclosure-use-other-microcontrollers-in-the-future">
+<h2>Another Disclosure: Use other Microcontrollers in the future!<a class="headerlink" href="#another-disclosure-use-other-microcontrollers-in-the-future" title="Link to this heading">#</a></h2>
+<p>As you may be aware, there are a wide variety of other microcontollers
+out there that vary in size, functionality, and usability. Explore your
+options to better fit your applications. Below are some of the major
+micorcontrollers that are commercially available quite regularly.</p>
+<ul>
+<li><p>Arduino (AVRs, Arudino Uno, Nano, Micro, Mega …)<br />
+Pros:</p>
+<ul class="simple">
+<li><p>Open-source</p></li>
+<li><p>Simple to use</p></li>
+<li><p>Wide variety of models and styles</p></li>
+<li><p>Large hobby community</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Limited in functionality unless used as AVR</p></li>
+<li><p>Argued to be outdated compared to newer microcontrollers</p></li>
+</ul>
+</li>
+<li><p>ESP (ESP32, ESP8266)<br />
+Pros:</p>
+<ul class="simple">
+<li><p>Open-source</p></li>
+<li><p>A lot of embedded functionality such as Wi-Fi and Bluetooth</p></li>
+<li><p>Large hobby community</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Main board is more difficult to solder than other controllers</p></li>
+<li><p>Limited anlaog pins- need to use an external mux to get more
+functionality</p></li>
+</ul>
+</li>
+<li><p>STM (STM8, STM32)<br />
+Pros:</p>
+<ul class="simple">
+<li><p>Used a lot in commercial products</p></li>
+<li><p>Very large functionality</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Proprietary</p></li>
+<li><p>Need licence to program properly</p></li>
+</ul>
+</li>
+<li><p>Raspberry Pi Pico (RP2040)<br />
+Pros:</p>
+<ul class="simple">
+<li><p>New</p></li>
+<li><p>Inexpensive</p></li>
+<li><p>Developing user base</p></li>
+<li><p>New versions being released with a lot of different
+functionality</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Proprietary</p></li>
+<li><p>New</p></li>
+</ul>
+</li>
+<li><p>Raspberry Pi (mini-computer)<br />
+While not a microcontroller, a Raspberry Pi can be programmed with
+much of the same functions as the above microcrontollers with a lot
+more memory and power.<br />
+Pros:</p>
+<ul class="simple">
+<li><p>Inexpensive</p></li>
+<li><p>strong user base</p></li>
+<li><p>Full Linux OS support</p></li>
+<li><p>WiFi, HDMI, USB, Ethernet, Camera input ready to go.</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Proprietary</p></li>
+<li><p>Needs OS installed</p></li>
+<li><p>Takes longer to setup, but can streamline in the future.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials-needed">Materials Needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure">Disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-arduino">Introduction to Arduino</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-information-on-an-arduino-and-using-the-arduino-ide">General information on an Arduino and using the Arduino IDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-microcontroller-systems-avrs">Advanced Microcontroller systems (AVRs)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-task">Primary Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-exercises">General Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio-and-digital-sensors-buttons">GPIO and Digital Sensors/Buttons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-diagram">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-sensors-for-control">Analog Sensors for Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-display">7-Segment Display</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c-lcd-display">I2C LCD Display</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dc-motor-control-using-pwm">DC Motor Control Using PWM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-control-using-pwm">Servo Control Using PWM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Wiring Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Sample Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-arduino-nano-in-reverse-engineering">Limitations of the Arduino Nano in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-disclosure-use-other-microcontrollers-in-the-future">Another Disclosure: Use other Microcontrollers in the future!</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben Manning
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

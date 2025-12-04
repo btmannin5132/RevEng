@@ -2,7 +2,7 @@
 Website for Electronics Reverse Engineering Course
 
 # Licensing
-Code: All source code for the website (HTML, CSS, JavaScript, etc.) is licensed under the MIT License (see LICENSE file for details).
+Code: All source code for the website (Md, HTML, CSS, JavaScript, etc.) is licensed under the MIT License (see LICENSE file for details).
 
 Content: All original educational content, including text, lessons, and graphics, is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
