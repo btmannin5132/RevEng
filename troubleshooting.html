@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to ECE39595! &#8212; ECE39595- Reverse Engineering</title>
+    <title>Electronic Troubleshooting &#8212; ECE39595- Reverse Engineering</title>
   
   
   
@@ -57,12 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'troubleshooting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ECE 39595: Applications of ECE through Reverse Engineering" href="syllabus.html" />
+    <link rel="prev" title="Microcontorller Tutorial" href="uc-arduino.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +141,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -176,17 +172,18 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Welcome to ECE39595!
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">RE Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lightbulb.html">Lab1-LED Lightbulb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uc-arduino.html">Microcontorller Tutorial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The 5 Whys</a></li>
 </ul>
 
     </div>
@@ -258,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/btmannin5132/RevEng/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/btmannin5132/RevEng/issues/new?title=Issue%20on%20page%20%2Ftroubleshooting.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +285,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/troubleshooting.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -359,7 +356,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -370,11 +369,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to ECE39595!</h1>
+    <h1>Electronic Troubleshooting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-5-whys-to-reverse-engineering">Applying the 5 Whys to Reverse Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem">1. Identify the Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-why-repeatedly">2. Ask “Why?” Repeatedly</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breadboard-troubleshooting-in-reverse-engineering">Breadboard Troubleshooting in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-the-5-whys-method-in-reverse-engineering">Advantages of the 5 Whys Method in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,16 +398,90 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-ece39595">
-<h1>Welcome to ECE39595!<a class="headerlink" href="#welcome-to-ece39595" title="Link to this heading">#</a></h1>
-<p>Hello, and welcome to ECE39595, Applications of ECE through Reverse Engineering.</p>
-<p>I am Ben Manning, the course instructor for ECE39595.</p>
-<p>This is an experimental lab course. Experimental courses in academics are designed to explore innovative teaching methods, emerging topics, and new areas of study that are not yet part of the established curriculum.  The instructors of this course are grateful to the students that are willing to work with the instructors to develop this course as it is developed.</p>
-<p>If you have further questions, please contact me at <a class="reference external" href="mailto:btmannin&#37;&#52;&#48;purdue&#46;edu">btmannin<span>&#64;</span>purdue<span>&#46;</span>edu</a>.</p>
-<p>Thank you,</p>
-<p>Ben Manning</p>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="electronic-troubleshooting">
+<h1>Electronic Troubleshooting<a class="headerlink" href="#electronic-troubleshooting" title="Link to this heading">#</a></h1>
+<p>Effective troubleshooting is essential in reverse engineering, whether
+analyzing an unknown circuit or diagnosing a system’s unexpected
+behavior. The <strong>5 Whys</strong> method provides a structured approach to
+uncover the root causes of issues by repeatedly asking <strong>“Why?”</strong> This
+technique prevents mere symptom treatment and leads to more effective
+problem resolution.</p>
+<section id="applying-the-5-whys-to-reverse-engineering">
+<h2>Applying the 5 Whys to Reverse Engineering<a class="headerlink" href="#applying-the-5-whys-to-reverse-engineering" title="Link to this heading">#</a></h2>
+<p>The 5 Whys method can be used to diagnose failures in reverse
+engineering processes by following these steps:</p>
+<section id="identify-the-problem">
+<h3>1. Identify the Problem<a class="headerlink" href="#identify-the-problem" title="Link to this heading">#</a></h3>
+<p>Clearly define the issue. Example: <em>“The microcontroller-based system
+under analysis does not respond to inputs.”</em></p>
+</section>
+<section id="ask-why-repeatedly">
+<h3>2. Ask “Why?” Repeatedly<a class="headerlink" href="#ask-why-repeatedly" title="Link to this heading">#</a></h3>
+<p>Follow a logical sequence of questioning:</p>
+<ol class="arabic simple">
+<li><p><strong>Why is the system not responding?</strong> <em>Because the microcontroller
+is not executing the expected code.</em></p></li>
+<li><p><strong>Why is the microcontroller not executing the expected code?</strong>
+<em>Because it is not receiving power.</em></p></li>
+<li><p><strong>Why is the microcontroller not receiving power?</strong> <em>Because the
+voltage regulator is not supplying the correct output.</em></p></li>
+<li><p><strong>Why is the voltage regulator failing?</strong> <em>Because it is not
+receiving the expected input voltage.</em></p></li>
+<li><p><strong>Why is the input voltage incorrect?</strong> <em>Because there is a broken
+trace on the PCB, disrupting power delivery.</em></p></li>
+</ol>
+<p>By reaching the fifth <strong>Why</strong>, we have identified the root cause: a
+broken PCB trace. Rather than merely replacing components, we now
+understand the need to inspect and repair PCB traces to restore
+functionality.</p>
+</section>
+</section>
+<section id="breadboard-troubleshooting-in-reverse-engineering">
+<h2>Breadboard Troubleshooting in Reverse Engineering<a class="headerlink" href="#breadboard-troubleshooting-in-reverse-engineering" title="Link to this heading">#</a></h2>
+<p>Breadboards are essential tools for prototyping and reverse engineering
+circuits, but they can introduce their own issues. Common problems
+include loose connections, misplaced components, or unintended shorts.
+The 5 Whys method can also be applied to troubleshoot breadboard
+circuits:</p>
+<ol class="arabic simple">
+<li><p><strong>Why is the circuit not functioning as expected?</strong> <em>Because the
+microcontroller is not receiving power.</em></p></li>
+<li><p><strong>Why is the microcontroller not receiving power?</strong> <em>Because the
+power rails are not properly connected.</em></p></li>
+<li><p><strong>Why are the power rails not properly connected?</strong> <em>Because the
+jumper wires are incorrectly placed.</em></p></li>
+<li><p><strong>Why were the jumper wires placed incorrectly?</strong> <em>Because the
+schematic was misinterpreted.</em></p></li>
+<li><p><strong>Why was the schematic misinterpreted?</strong> <em>Because the labeling on
+the schematic was unclear.</em></p></li>
+</ol>
+<p>By applying the 5 Whys method, we can see that an unclear labeling issue
+led to a misinterpretation of the schematic and improper wiring, rather
+than simply assuming a faulty component.</p>
+</section>
+<section id="advantages-of-the-5-whys-method-in-reverse-engineering">
+<h2>Advantages of the 5 Whys Method in Reverse Engineering<a class="headerlink" href="#advantages-of-the-5-whys-method-in-reverse-engineering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Prevents misdiagnosing issues by identifying the true cause.</p></li>
+<li><p>Helps in systematically mapping unknown circuits and understanding
+design flaws.</p></li>
+<li><p>Encourages logical thinking when reconstructing how a system was
+designed.</p></li>
+<li><p>Can be supplemented with tools like logic analyzers, oscilloscopes,
+and schematic tracing for enhanced debugging.</p></li>
+<li><p>Useful in diagnosing both PCB and breadboard-related issues in
+reverse engineering projects.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>The 5 Whys technique is a valuable tool for troubleshooting in reverse
+engineering. By methodically questioning the cause of failures,
+engineers can go beyond surface-level issues and gain a deeper
+understanding of system design. This approach enhances diagnostic
+accuracy, reduces repeated failures, and strengthens problem-solving
+skills in electronics and hardware analysis.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -426,14 +514,14 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="syllabus.html"
-       title="next page">
+    <a class="left-prev"
+       href="uc-arduino.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ECE 39595: Applications of ECE through Reverse Engineering</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Microcontorller Tutorial</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -441,6 +529,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-5-whys-to-reverse-engineering">Applying the 5 Whys to Reverse Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem">1. Identify the Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-why-repeatedly">2. Ask “Why?” Repeatedly</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breadboard-troubleshooting-in-reverse-engineering">Breadboard Troubleshooting in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-the-5-whys-method-in-reverse-engineering">Advantages of the 5 Whys Method in Reverse Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
