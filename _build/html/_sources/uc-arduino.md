@@ -62,8 +62,8 @@ must modify existing systems and overcome limitations.
 This lab is designed in the assumption that the learner has a general
 knowledge set of electronics and programming. The learner does not need
 to know the formatting needed for an Arduino or C specifically, but
-should be familiar with how functions are designed in programming.\
-\
+should be familiar with how functions are designed in programming.
+
 Schematics are not generally provided in this document. While there is a
 wiring guide to state what pins are used where, the user is assumed to
 know generally how standard devices are attached in a circuit. For
@@ -84,16 +84,16 @@ its low cost and simplicity.
 If you do not have the Arduino IDE already, please download and install
 the environment. The Arduino IDE can be downloaded at not cost from
 Arduino LLC at
-[www.arduino.cc/en/software](www.arduino.cc/en/software){.uri}.\
-\
+[www.arduino.cc/en/software](www.arduino.cc/en/software){.uri}.
+
 Functionally, an Arduino has two primary functions that must be inside
 of every program that is uploaded to it. The **setup()** function runs
 once and is used to initialize different parts of the microcontroller.
 After the **setup()** function, the **loop()** function runs essentially
 as a loop initialized with while(0==0), meaning that the program will
 run indefinitely until it is halted by turning the device off, or it
-runs into an error that causes it to crash.\
-\
+runs into an error that causes it to crash.
+
 Inside of the Arduino IDE, there are a variety of examples and libraries
 that come pre-installed to assist you with your project at hand.
 [arduino.cc](arduino.cc){.uri} also has a community tab with a forum and
@@ -118,14 +118,14 @@ microcrontroller can often allow for a competitor to cut costs by
 limiting the amount of analog electronics needed to make a system by
 simulating the analog nature of some devices. Recreating the device
 using a microcontroller can also assist you with understanding the
-process that a device goes through to complete a task.\
-\
+process that a device goes through to complete a task.
+
 Your primary task for this lab is to create a functional replica of the
 thermostat that was reverse engineered in the beginning of the course
 using an Arduino Nano along with assorted sensors and switches. Document
 your processes and findings in your journal like you would any other
-lab.\
-\
+lab.
+
 
 ## General Exercises
 

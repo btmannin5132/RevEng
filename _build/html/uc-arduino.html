@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'uc-arduino';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lab1-LED Lightbulb" href="lightbulb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,10 +180,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">RE Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lightbulb.html">Lab1-LED Lightbulb</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Microcontorller Tutorial</a></li>
 </ul>
 
     </div>
@@ -497,9 +497,8 @@ reverse-engineering contexts.</p></li>
 <p>This lab is designed in the assumption that the learner has a general
 knowledge set of electronics and programming. The learner does not need
 to know the formatting needed for an Arduino or C specifically, but
-should be familiar with how functions are designed in programming.<br />
-<br />
-Schematics are not generally provided in this document. While there is a
+should be familiar with how functions are designed in programming.</p>
+<p>Schematics are not generally provided in this document. While there is a
 wiring guide to state what pins are used where, the user is assumed to
 know generally how standard devices are attached in a circuit. For
 example, a potentiometer will need to have an input voltage and common
@@ -518,17 +517,15 @@ its low cost and simplicity.</p>
 <p>If you do not have the Arduino IDE already, please download and install
 the environment. The Arduino IDE can be downloaded at not cost from
 Arduino LLC at
-<a class="reference internal" href="#www.arduino.cc/en/software"><span class="xref myst">www.arduino.cc/en/software</span></a>{.uri}.<br />
-<br />
-Functionally, an Arduino has two primary functions that must be inside
+<a class="reference internal" href="#www.arduino.cc/en/software"><span class="xref myst">www.arduino.cc/en/software</span></a>{.uri}.</p>
+<p>Functionally, an Arduino has two primary functions that must be inside
 of every program that is uploaded to it. The <strong>setup()</strong> function runs
 once and is used to initialize different parts of the microcontroller.
 After the <strong>setup()</strong> function, the <strong>loop()</strong> function runs essentially
 as a loop initialized with while(0==0), meaning that the program will
 run indefinitely until it is halted by turning the device off, or it
-runs into an error that causes it to crash.<br />
-<br />
-Inside of the Arduino IDE, there are a variety of examples and libraries
+runs into an error that causes it to crash.</p>
+<p>Inside of the Arduino IDE, there are a variety of examples and libraries
 that come pre-installed to assist you with your project at hand.
 <a class="reference internal" href="#arduino.cc"><span class="xref myst">arduino.cc</span></a>{.uri} also has a community tab with a forum and
 project hub that can likely assist with whatever issues you may have.</p>
@@ -553,14 +550,12 @@ microcrontroller can often allow for a competitor to cut costs by
 limiting the amount of analog electronics needed to make a system by
 simulating the analog nature of some devices. Recreating the device
 using a microcontroller can also assist you with understanding the
-process that a device goes through to complete a task.<br />
-<br />
-Your primary task for this lab is to create a functional replica of the
+process that a device goes through to complete a task.</p>
+<p>Your primary task for this lab is to create a functional replica of the
 thermostat that was reverse engineered in the beginning of the course
 using an Arduino Nano along with assorted sensors and switches. Document
 your processes and findings in your journal like you would any other
-lab.<br />
-\</p>
+lab.</p>
 </section>
 <section id="general-exercises">
 <h2>General Exercises<a class="headerlink" href="#general-exercises" title="Link to this heading">#</a></h2>
@@ -944,6 +939,15 @@ Pros:</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="lightbulb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab1-LED Lightbulb</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
