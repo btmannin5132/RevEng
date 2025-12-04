@@ -142,9 +142,9 @@ between student submissions, the presentations can, and should be unique
 to the presenter, their preferred presenting style, and should allow for
 the presenter's enthusiasm to be present and engaging.
 
-# Rubrics
+## Rubrics
 
-## Report Rubric
+### Report Rubric
 
  | **Category** | **Exceeds Expectations**| **Meets Expectations** | **Approaching Expectations** | **Not Meeting Expectations**|
 |:---|:---|:---|:---|:---|
@@ -156,9 +156,8 @@ the presenter's enthusiasm to be present and engaging.
 |**Conclusion<br>(5 pts)** | Summarizes findings with exceptional clarity and depth, providing forward-thinking reflections.| Summarizes key findings and reflections.| Brief summary with minimal reflection.| No meaningful summary.|
  | **Presentation & Formatting<br>(5 pts)**|   Exceptionally well-structured, polished, and highly professional writing.|Well-organized, free of grammar/spelling errors, professional writing. |    Some organization/grammar issues, but still understandable. | Poorly structured, many errors.|
   |**References & Citations<br>(5 pts)**| High-quality sources, consistent format (IEEE, APA).|      Some citation errors or weak |No citations or improper formatting.|
-:::
 
-## presentation Rubric
+### presentation Rubric
 
  | **Category** | **Exceeds Expectations**| **Meets Expectations** | **Approaching Expectations** | **Not Meeting Expectations**|
 |:---|:---|:---|:---|:---|
