@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 1 &#8212; ECE39595- Reverse Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'appliance_project';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="ECE39595- Reverse Engineering - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="ECE39595- Reverse Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to ECE39595!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">RE Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lightbulb.html">Lab1-LED Lightbulb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uc-arduino.html">Microcontorller Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">The 5 Whys</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng/issues/new?title=Issue%20on%20page%20%2Fappliance_project.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/appliance_project.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Project 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Project 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-logistics">General Logistics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasheet-7-5-of-final-grade">Datasheet (7.5% of final grade)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-presentation-10-of-final-grade">Technical Presentation (10% of final grade)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-deliverables">About the Deliverables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rubrics">Rubrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-rubric">Report Rubric</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="project-1">
+<h1>Project 1<a class="headerlink" href="#project-1" title="Link to this heading">#</a></h1>
+<p><strong>Reverse Engineering a Household Appliance</strong></p>
+<p>Ben Manning, Purdue University</p>
+<p>Last Modified: 2025-12-04</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this course so far, you have reverse engineered an LED light bulb and
+a general-use thermostat. By this point, you have hopefully realized
+that a lot of the things that we use on a daily basis (and often take
+for granted) are not <em>that</em> complicated. Take a power regulating system,
+combine it with some sensors and lights, and you can make pretty much
+every general appliance out there. This next project should help confirm
+this notion with you, and give some freedom to explore different
+appliances that you might find interesting, and then share it with the
+rest of the class.</p>
+</section>
+<section id="the-project">
+<h2>The Project<a class="headerlink" href="#the-project" title="Link to this heading">#</a></h2>
+<p>Your task for this project is to reverse engineer and document a common
+household appliance, preferably an appliance that you use fairly
+regularly. There are some limitations on what you can select, but the
+general rule is that the appliance cannot have a screen or digital
+buttons. This will ideally prevent you from having to dive into digital
+signals thus far, and focus on the different analog approaches to make
+our lives easier.</p>
+<p>Some appliances you may be interested in exploring can include, but are
+not limited to:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Electric Kettle</p></td>
+<td><p>Electric Fan</p></td>
+<td><p>Toaster</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hair Dryer</p></td>
+<td><p>Electric Iron</p></td>
+<td><p>Blender</p></td>
+</tr>
+<tr class="row-even"><td><p>Electric Space Heater</p></td>
+<td><p>Electric Coffee Maker</p></td>
+<td><p>Slow Cooker</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electric Mixer</p></td>
+<td><p>Dimming lamp</p></td>
+<td><p>Touch Lamp</p></td>
+</tr>
+<tr class="row-even"><td><p>Electric Griddle</p></td>
+<td><p>Power Drill (wall powered)</p></td>
+<td><p>Rice Cooker</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If there is something else that you would like to explore for this
+project, please discuss with the instructor first. The appliance should
+have the below functions:</p>
+<ul class="simple">
+<li><p>Powered by being plugged into the wall (no batteries yet)</p></li>
+<li><p>Should have buttons/slides/switches to adjust states other than a
+power button (heat level, motor speed, etc…)</p></li>
+<li><p>Should not have a screen or digital buttons. If the buttons ‘click,’
+you should be fine.</p></li>
+</ul>
+</section>
+<section id="general-logistics">
+<h2>General Logistics<a class="headerlink" href="#general-logistics" title="Link to this heading">#</a></h2>
+<p>You are expected to work independently*, but are welcome to ask for
+guidance from your instructor and other students.</p>
+<p>*Name-brand appliances are also not necessary, however; you may pair
+with a partner to reverse engineer a generic appliance versus a
+name-brand appliance to observe potential differences and cost-cutting
+measures. Example, a Great Value coffee maker versus a Mr. Coffee coffee
+maker.</p>
+<p>You are <strong>not</strong> encouraged to go and purchase a new appliance to take
+apart. Instead, wander around your local thrift store, a rummage sale,
+or anywhere else you may be able to find an appliance for cheap. It is
+not recommended to spend more than $20 on this project. That said,
+depending on the appliance, you may be able to get a new one for under
+$20, which means you should be able to find one used for significantly
+cheaper.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="deliverables">
+<h1>Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h1>
+<p>There will be two main deliverables for this project that will focus on
+two forms of technical communication: a technical report in the form of
+a data sheet and a technical presentation.</p>
+<section id="datasheet-7-5-of-final-grade">
+<h2>Datasheet (7.5% of final grade)<a class="headerlink" href="#datasheet-7-5-of-final-grade" title="Link to this heading">#</a></h2>
+<p>This document should read as if you are reading a datasheet of an IC or
+other technical manual of an appliance or component. This document
+should be 3-5 pages (single spaced, 12pt font) and have the below
+information:</p>
+<ol class="arabic simple">
+<li><p>Summary/general overview. This should include what the appliance is
+and its general use case.</p></li>
+<li><p>Pictures of critical parts of the appliance, both electrical and
+mechanical.</p></li>
+<li><p>List of mechanical components and their purpose in the device.</p></li>
+<li><p>List of electrical components with a description of the component
+and their purpose in the device. Links to datasheets for sensors and
+chips should be included.</p></li>
+<li><p>Reverse Engineered Schematic with breakouts and descriptions for
+sub-circuits. There should also be discussion about the sensors used
+in the system and how they impact the system.</p></li>
+</ol>
+<p>This document should primarily be comprised of full sentences, tables,
+and charts, and should be able to be read by someone with limited
+electronics experience.</p>
+</section>
+<section id="technical-presentation-10-of-final-grade">
+<h2>Technical Presentation (10% of final grade)<a class="headerlink" href="#technical-presentation-10-of-final-grade" title="Link to this heading">#</a></h2>
+<p>You are also tasked with presenting your project to the other students
+in ECE39595, and answer questions regarding your reverse engineering
+process and product. Your presentation should be between 5 and 10
+minutes with time for questions in that time. You will get cut off if
+your presentation extends beyond 13 minutes. You should also generate a
+4-10 slide presentation as a visual guide for the presentation. You are
+also expected to ask meaningful questions during other students’
+presentations. Below are some expected talking points:</p>
+<ul class="simple">
+<li><p>Summary/general overview. This should include what the appliance is
+and its general use case.</p></li>
+<li><p>Pictures and discussion of critical parts of the appliance, both
+electrical and mechanical.</p></li>
+<li><p>Reverse Engineered Schematic with breakouts and discussions for
+sub-circuits. There should also be discussion about the sensors used
+in the system and how they impact the system.</p></li>
+</ul>
+<p>This presentation should not be a regurgitation of the technical report,
+but instead highlighting the really important parts of the report.
+Images, tables, and schematics will likely be similar if not identical,
+but the way you discuss the information should be more personable.</p>
+</section>
+<section id="about-the-deliverables">
+<h2>About the Deliverables<a class="headerlink" href="#about-the-deliverables" title="Link to this heading">#</a></h2>
+<p>Taking a look at the rubrics below will show that the content asked for
+in each deliverable is very similar, which is true. In fact, the first
+five categories of the rubrics are nearly identical except for the grade
+weights. The main difference between the deliverables will be how the
+content is presented. The datasheet should focus on the in-depth
+technical information, whereas the presentation should be more of an
+overview of the technical data with room for discussion and questions.
+While the formatting of the datasheet will likely look fairly similar
+between student submissions, the presentations can, and should be unique
+to the presenter, their preferred presenting style, and should allow for
+the presenter’s enthusiasm to be present and engaging.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rubrics">
+<h1>Rubrics<a class="headerlink" href="#rubrics" title="Link to this heading">#</a></h1>
+<section id="report-rubric">
+<h2>Report Rubric<a class="headerlink" href="#report-rubric" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Category</strong></p></th>
+<th class="head text-left"><p><strong>Exceeds Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Meets Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Approaching Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Not Meeting Expectations</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Introduction<br>(10 pts)</strong></p></td>
+<td class="text-left"><p>Provides an in-depth, engaging overview of the appliance, its significance, and objectives, demonstrating exceptional clarity.</p></td>
+<td class="text-left"><p>Clearly describes the appliance, provides context, states objective, and defines scope.</p></td>
+<td class="text-left"><p>Missing one or two elements, or descriptions are vague.</p></td>
+<td class="text-left"><p>Lacks description, context, objective, or scope.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Methodology<br>(20 pts)</strong></p></td>
+<td class="text-left"><p>Exceptionally detailed and well-justified methodology, including advanced considerations.</p></td>
+<td class="text-left"><p>Detailed explanation, lists tools, step-by-step procedures, and justifies each step.</p></td>
+<td class="text-left"><p>Some steps are unclear or missing, minimal</p></td>
+<td class="text-left"><p>No clear methodology, missing key steps.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Analysis &amp; Findings<br>(30 pts)</strong></p></td>
+<td class="text-left"><p>Provides an outstanding analysis with deep insights, comprehensive diagrams, and professional presentation.</p></td>
+<td class="text-left"><p>Identifies components accurately, includes diagrams/photos, detailed circuit analysis, explains functionality, and addresses challenges.</p></td>
+<td class="text-left"><p>Some missing components or unclear explanations, diagrams lack clarity, minimal discussion of challenges.</p></td>
+<td class="text-left"><p>No significant findings, missing diagrams, or little analysis.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Schematics &amp; Diagrams<br>(15 pts)</strong></p></td>
+<td class="text-left"><p>Exceptional, highly detailed schematics with professional clarity and layout.</p></td>
+<td class="text-left"><p>Clear, labeled schematics supporting analysis.</p></td>
+<td class="text-left"><p>Some labeling errors or diagrams are unclear.</p></td>
+<td class="text-left"><p>Poorly labeled or missing schematics.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Discussion<br>(15 pts)</strong></p></td>
+<td class="text-left"><p>Provides deep insights and innovative suggestions with thorough comparisons and applications.</p></td>
+<td class="text-left"><p>Interprets results, compares expected vs. actual functionality, suggests improvements and applications.</p></td>
+<td class="text-left"><p>Lacks depth in comparison, minimal improvement suggestions.</p></td>
+<td class="text-left"><p>No clear interpretation, lacks comparisons or insights.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Conclusion<br>(5 pts)</strong></p></td>
+<td class="text-left"><p>Summarizes findings with exceptional clarity and depth, providing forward-thinking reflections.</p></td>
+<td class="text-left"><p>Summarizes key findings and reflections.</p></td>
+<td class="text-left"><p>Brief summary with minimal reflection.</p></td>
+<td class="text-left"><p>No meaningful summary.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Presentation &amp; Formatting<br>(5 pts)</strong></p></td>
+<td class="text-left"><p>Exceptionally well-structured, polished, and highly professional writing.</p></td>
+<td class="text-left"><p>Well-organized, free of grammar/spelling errors, professional writing.</p></td>
+<td class="text-left"><p>Some organization/grammar issues, but still understandable.</p></td>
+<td class="text-left"><p>Poorly structured, many errors.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>References &amp; Citations<br>(5 pts)</strong></p></td>
+<td class="text-left"><p>High-quality sources, consistent format (IEEE, APA).</p></td>
+<td class="text-left"><p>Some citation errors or weak</p></td>
+<td class="text-left"><p>No citations or improper formatting.</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="docutils">
+<h2 class="rubric" id="presentation-rubric">presentation Rubric</h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Category</strong></p></th>
+<th class="head text-left"><p><strong>Exceeds Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Meets Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Approaching Expectations</strong></p></th>
+<th class="head text-left"><p><strong>Not Meeting Expectations</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Introduction<br>(5 pts)</strong></p></td>
+<td class="text-left"><p>Provides a compelling and well-contextualized introduction, engaging the audience.</p></td>
+<td class="text-left"><p>Briefly discusses the appliance, its use, and selection reasoning.</p></td>
+<td class="text-left"><p>Missing one element or lacks depth.</p></td>
+<td class="text-left"><p>No introduction or vague explanation.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Methodology<br>(10 pts)</strong></p></td>
+<td class="text-left"><p>Demonstrates an advanced understanding with highly detailed reverse engineering methods.</p></td>
+<td class="text-left"><p>Explains reverse engineering approach, steps taken, and errors encountered.</p></td>
+<td class="text-left"><p>Some missing details or unclear steps.</p></td>
+<td class="text-left"><p>No clear methodology or missing major steps.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Analysis &amp; Findings<br>(10 pts)</strong></p></td>
+<td class="text-left"><p>Presents findings in an exceptionally clear, insightful, and well-organized manner.</p></td>
+<td class="text-left"><p>Identifies components, organizes discussion, provides insights, and discusses challenges.</p></td>
+<td class="text-left"><p>Some missing insights, vague organization.</p></td>
+<td class="text-left"><p>No clear findings, lacks discussion.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Schematics &amp; Diagrams<br>(10 pts)</strong></p></td>
+<td class="text-left"><p>Exceptionally well-labeled and structured diagrams, with innovative visualization techniques.</p></td>
+<td class="text-left"><p>Clear, well-labeled diagrams with appropriate breakdown for readability.</p></td>
+<td class="text-left"><p>Some labeling issues or unclear schematics.</p></td>
+<td class="text-left"><p>Poorly presented, missing schematics.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Discussion<br>(25 pts)</strong></p></td>
+<td class="text-left"><p>Provides advanced insights, innovative comparisons, and actionable recommendations.</p></td>
+<td class="text-left"><p>Interprets results, compares expected vs. actual, suggests improvements, and considers applications.</p></td>
+<td class="text-left"><p>Lacks depth or some missing elements.</p></td>
+<td class="text-left"><p>No meaningful discussion or comparison.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Presentation<br>(25 pts)</strong></p></td>
+<td class="text-left"><p>Exceptionally engaging, well-structured, confident, and professionally delivered.</p></td>
+<td class="text-left"><p>Engaging, confident, well-structured slides, speaks clearly, answers questions professionally.</p></td>
+<td class="text-left"><p>Some hesitation, minor slide issues, difficulty answering questions.</p></td>
+<td class="text-left"><p>Poor organization, lacks confidence, difficult to follow.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Asks Effective Questions (15 pts)</strong></p></td>
+<td class="text-left"><p>Asks insightful, thought-provoking questions that drive deeper discussions.</p></td>
+<td class="text-left"><p>Asks 3 high-quality questions that further discussion.</p></td>
+<td class="text-left"><p>Asks some questions, but they lack depth.</p></td>
+<td class="text-left"><p>No meaningful questions or asks surface-level ones.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Project 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-logistics">General Logistics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasheet-7-5-of-final-grade">Datasheet (7.5% of final grade)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-presentation-10-of-final-grade">Technical Presentation (10% of final grade)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-deliverables">About the Deliverables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rubrics">Rubrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-rubric">Report Rubric</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben Manning
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
