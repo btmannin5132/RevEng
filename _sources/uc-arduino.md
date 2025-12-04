@@ -110,8 +110,6 @@ on an Arduino due to Arduino LLC's mission to make the microcontroller
 more user-friendly. There is also a lot of documentation available on
 programming AVRs if you wish to go down this road.
 
-## Primary Task
-
 Reverse engineering plays a large role in electronics competition as a
 way to spin off a competitor's product. Using an inexpensive
 microcrontroller can often allow for a competitor to cut costs by
@@ -125,9 +123,6 @@ thermostat that was reverse engineered in the beginning of the course
 using an Arduino Nano along with assorted sensors and switches. Document
 your processes and findings in your journal like you would any other
 lab.
-
-
-## General Exercises
 
 Below you will find a variety exercises that will introduce you to
 different functions of the Arduino Nano and assist you with some sample
