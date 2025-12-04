@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ECE 39595: Applications of ECE through Reverse Engineering &#8212; ECE39595- Reverse Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Procedure for Reverse Engineering Electric Components" href="process.html" />
+    <link rel="prev" title="Welcome to ECE39595!" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="ECE39595- Reverse Engineering - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="ECE39595- Reverse Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ECE39595!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">RE Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lightbulb.html">Lab1-LED Lightbulb</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/btmannin5132/RevEng/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/syllabus.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ECE 39595: Applications of ECE through Reverse Engineering</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructors">Instructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-disclosure">Research Disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-material">Required Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-schedule">Course Schedule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-policies">Course Policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#piazza">Piazza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments">Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-journal">Lab Journal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reports">Reports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentations">Presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-reflections">Weekly Reflections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-dates">Due dates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#journals-and-reports">Journals and Reports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-policy">Submission Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regrades">Regrades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheating">Cheating</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-language-models-ai-generative-models">Large Language Models/AI/Generative Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-breakdown">Grade Breakdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-expectations">Course Expectations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-class">Preparing for Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">In Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-class">After Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">Office Hours</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety">Safety</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment-safety-equipment-safety-unnumbered">Equipment Safety {#equipment-safety .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-or-issues">Questions or issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purdue-honor-pledge">Purdue honor pledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caps">CAPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-discrimination">Non discrimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-with-documented-disabilities">Students with documented disabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic integrity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#campus-emergencies">Campus emergencies</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ece-39595-applications-of-ece-through-reverse-engineering">
+<h1>ECE 39595: Applications of ECE through Reverse Engineering<a class="headerlink" href="#ece-39595-applications-of-ece-through-reverse-engineering" title="Link to this heading">#</a></h1>
+<p><em>Spring 2026</em>
+Last Modified: 2025-12-03</p>
+<p><em>This syllabus is subject to change</em></p>
+<section id="instructors">
+<h2>Instructors<a class="headerlink" href="#instructors" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Role</p></th>
+<th class="head text-left"><p>Name</p></th>
+<th class="head text-left"><p>email</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Course Instructor</p></td>
+<td class="text-left"><p>Ben Manning</p></td>
+<td class="text-left"><p><a class="reference external" href="mailto:btmannin&#37;&#52;&#48;purdue&#46;edu">btmannin<span>&#64;</span>purdue<span>&#46;</span>edu</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Primary Research Investigator</p></td>
+<td class="text-left"><p>Jason Morphew</p></td>
+<td class="text-left"><p><a class="reference external" href="mailto:jmorphew&#37;&#52;&#48;purdue&#46;edu">jmorphew<span>&#64;</span>purdue<span>&#46;</span>edu</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Teaching Assistant</p></td>
+<td class="text-left"><p>Alex Valdes</p></td>
+<td class="text-left"><p><a class="reference external" href="mailto:valdesa&#37;&#52;&#48;purdue&#46;edu">valdesa<span>&#64;</span>purdue<span>&#46;</span>edu</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="course-overview">
+<h2>Course Overview<a class="headerlink" href="#course-overview" title="Link to this heading">#</a></h2>
+<p>Welcome to Applications of ECE Through Reverse Engineering! Throughout
+this course students will use skills and knowledge learned in prior labs
+to deconstruct, analyze, and potentially improve commercial products.
+This course serves to provide a place for students to explore different
+fields in ECE while also developing skills needed for senior design and
+future careers.<br />
+<br />
+This is an experimental lab course. Experimental courses in academics
+are designed to explore innovative teaching methods, emerging topics,
+and new areas of study that are not yet part of the established
+curriculum. The instructors of this course are grateful to the students
+that are willing to work with the instructors to develop this course as
+it is developed.</p>
+</section>
+<section id="course-objectives">
+<h2>Course Objectives<a class="headerlink" href="#course-objectives" title="Link to this heading">#</a></h2>
+<p>A student who successfully fulfills the course requirements will be able
+to:</p>
+<ul class="simple">
+<li><p>Competently select, use, and automate electronic measurement
+instruments. [1,6]</p></li>
+<li><p>Design, wire, and troubleshoot electronic circuits. [1,6] simulate
+electronic circuits. [1,6]</p></li>
+<li><p>Keep a laboratory notebook and prepare a formal laboratory report.
+[3]</p></li>
+<li><p>Function on an interdisciplinary team that draws on diverse
+backgrounds. [5]</p></li>
+<li><p>Design, build, and test resistor-inductor-capacitor, operational
+amplifier, etc. circuits to meet specifications. [1,6]</p></li>
+<li><p>Demonstrate knowledge of laboratory safety precautions. [2]</p></li>
+</ul>
+</section>
+<section id="research-disclosure">
+<h2>Research Disclosure<a class="headerlink" href="#research-disclosure" title="Link to this heading">#</a></h2>
+<p>This course will be the subject of research through the Elmore Family
+School of Electrical and Computer Engineering, and the school of
+Engineering Education at Purdue University. This research is approved
+through the Institutional Review Board (IRB 2024 – 582), with Dr. Jason
+Morphew as the Principal Investigator and Ben Manning as the
+Co-Investigator. <strong>Anonymous</strong> data will be collected from students to
+assess their development through the course, specifically focusing on
+the student mindsets of ECE concepts and personal confidence with the
+material.<br />
+<br />
+The purpose of the research is to evaluate the course activities and the
+instructor. This means that students will not be asked to do anything
+other than the regular course work for this class. In addition, all
+identifying information, such as a student’s name or student id, will
+never be shared with anyone except the course instructor in compliance
+with FERPA. This means that student performance in this class will
+remain confidential.</p>
+</section>
+<section id="required-material">
+<h2>Required Material<a class="headerlink" href="#required-material" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The laboratory kit available at
+<a class="reference external" href="https://www.elexp.com/purdue_index">https://www.elexp.com/purdue_index</a>. This is the same lab kit used
+in ECE20007.</p></li>
+<li><p>USB flash drive. 4Gb or larger. Needed for connecting to bench
+equipment.</p></li>
+<li><p>Electronics Tool Kit- Screwdriver/bits, tweezers, hemostat,
+spreaders, picks etc…<br />
+Commercial kits range from &lt;$15 - $150 USD, below are recommended
+kits that can be purchased locally in West Lafayette, Indiana or
+online at a variety of vendors</p>
+<ul>
+<li><p><a class="reference external" href="https://www.walmart.com/ip/Hyper-Tough-77-Piece-Precision-Tool-Kit-with-Magnetic-Screwdriver-Standard-Size-Bits-and-Case-New-Condition/909383908?wmlspartner=wlpa&amp;amp;selectedSellerId=0">HyperTough (At Walmart,
+<span class="math notranslate nohighlight">\(\approx\$15\)</span>)</a></p></li>
+<li><p><a class="reference external" href="https://www.menards.com/main/tools/hand-tools/screwdrivers-nut-drivers-sets/performax-reg-phone-repair-precision-screwdriver-set-109-piece/px-3036/p-1642874304166880-c-9158.htm?exp=false">Performax (At Menards,
+<span class="math notranslate nohighlight">\(\approx\$18\)</span>)</a></p></li>
+<li><p><a class="reference external" href="https://www.menards.com/main/electrical/electrical-tools-accessories/electrical-hand-tools/performax-reg-electronics-repair-tool-set-52-piece/65323/p-1463764640723-c-6455.htm?exp=false">iFixit (online)
+<span class="math notranslate nohighlight">\(\approx\$30\)</span></a></p></li>
+</ul>
+</li>
+<li><p>Handheld Digital Multimeter.</p></li>
+<li><p><strong>Optional:</strong> Practical Electronics for Inventors, Fourth Edition
+Paul Scherz, Simon Monk</p></li>
+</ul>
+</section>
+<section id="course-schedule">
+<h2>Course Schedule<a class="headerlink" href="#course-schedule" title="Link to this heading">#</a></h2>
+<p><em>Note: We reserve the right to modify the experiment order and topic.
+Any change will be announced with sufficient time to prepare for class.</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head text-center"><p>Journal Write-Up</p></th>
+<th class="head text-center"><p>Project</p></th>
+<th class="head text-center"><p>Report/Presentation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Welcome, Syllabus, and Lab Safety</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Effective Reverse Engineering Strategies, tools, generating schematics, simulations, and the LED light bulb</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Sensors and Filtering, Thermostats</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Microcontroller tutorial, GPIO, Analog, PWM</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p>5-7</p></td>
+<td><p>Appliance Deconstruct/analysis Project</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Analog/Digital Multimeter Reverse Engineer</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Charging Block by manufacturer comparison</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>10-11</p></td>
+<td><p>Motor Controllers Deconstruct/Build- Brushed and Brushless</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>FM Radio Deconstruct/ AM Radio Build</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>13-15</p></td>
+<td><p>Final Project: Personal interest reverse-engineer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="course-policies">
+<h2>Course Policies<a class="headerlink" href="#course-policies" title="Link to this heading">#</a></h2>
+<p>The section Graduate Instructor is responsible for assessing the quality
+of your work and progress in the course. Ultimately they are responsible
+for determining your semester grade.</p>
+<p>To receive a passing grade, you must <em>at least</em>:</p>
+<ul class="simple">
+<li><p>Attend <strong>all</strong> scheduled lab sections (unless excused by the
+instructor). Students must request an excused absence from the
+instructor <strong>before</strong> the scheduled sessions begin.</p></li>
+<li><p>Perform all experiments.</p></li>
+<li><p>Submit a complete journal write up for each lab.</p></li>
+<li><p>Obtain an average of 60% or better between the project presentations
+and reports.</p></li>
+<li><p>Effectively work with your partner(s) during the lab period.</p></li>
+</ul>
+<p>Failing to complete any of the above criteria are grounds for failing
+the course.<br />
+<strong>Food and drink other than water are prohibited</strong> at all times in the
+lab. Anyone with open food or drink in lab will be required to leave.
+Water must be in a resealable container, and placed on the floor.</p>
+</section>
+<section id="piazza">
+<h2>Piazza<a class="headerlink" href="#piazza" title="Link to this heading">#</a></h2>
+<p>Any overreaching announcements, lab modifications, and assignment
+adjustments will be announced through Piazza, an online forum where
+students can ask questions, and instructors can post announcements. It
+will be expected that students check the course Piazza page regularly to
+make sure they stay up-to-date on the course. Email notifications can
+also be added for when instructors make announcements. Students
+initially enrolled in the course will be automatically populated into
+the course Piazza page. If a student is added late, or was not
+automatically populated into the page for whatever reason, they can join
+the course Piazza page by going to
+<a class="reference external" href="https://piazza.com/purdue/spring2025/ece39595">https://piazza.com/purdue/spring2025/ece39595</a>.</p>
+</section>
+<section id="assignments">
+<h2>Assignments<a class="headerlink" href="#assignments" title="Link to this heading">#</a></h2>
+<section id="lab-journal">
+<h3>Lab Journal<a class="headerlink" href="#lab-journal" title="Link to this heading">#</a></h3>
+<p>Laboratory Journals should be a log of all your work performed in this
+course. This notebook can be either digital or hand-written. <strong>If you
+start with either digital or handwritten it needs to be consistent
+throughout the experiment.</strong> The notebook should be updated in real time
+during the experiment.</p>
+<p>The lab notebook should focus on answering the below questions:</p>
+<ul class="simple">
+<li><p>“What are we doing in this task?”</p></li>
+<li><p>“Why are we doing this task?”</p></li>
+<li><p>“How are we performing this task?”</p></li>
+</ul>
+<p>The above questions can generally be answered using the below procedure:</p>
+<ul class="simple">
+<li><p>Give a brief context to where you are in the experiment.</p></li>
+<li><p>Capture detailed results from experiment.</p></li>
+<li><p>Give <strong>quick/short</strong> insights into why you think an outcome occurs.</p></li>
+<li><p>All deconstructions will be expected to have a general SPICE
+simulation/schematic/flow diagram to help with the analysis.</p></li>
+</ul>
+<p>The lab notebook is essential to success in this course. It should be
+kept organized and neat to improve your effectiveness as researchers.
+The notebook will be turned in digitally with the experiment.</p>
+</section>
+<section id="reports">
+<h3>Reports<a class="headerlink" href="#reports" title="Link to this heading">#</a></h3>
+<p>There will be two projects that require a well-documented formal report
+to be turned in. These documents will include in paragraph form:</p>
+<ul class="simple">
+<li><p>An abstract</p></li>
+<li><p>An introduction and conclusion to the overall problem and solution.</p></li>
+<li><p>A theory section that explains how the system and its parts work.</p></li>
+<li><p>Contains a discussion of the measurement results and conclusions
+made based on the results.</p></li>
+<li><p>Has <strong>only</strong> electronically drawn schematics and typed equations</p></li>
+<li><p>Answers all question in the experiments text</p></li>
+</ul>
+<p><br />
+If preferred, the formal reports for this class can also be written as a
+service manual/datasheet for the products that are being analyzed.
+Please reach out to the instructor for more information.<br />
+<br />
+All Write-ups and reports need to completed in a word processor.
+Hand-written or stylus-written write-ups will not be accepted, Any
+hand-written or stylus-written component of the writeups and reports
+will receive a score of 0 for that submission. This includes hand-drawn
+schematics and figures.</p>
+</section>
+<section id="presentations">
+<h3>Presentations<a class="headerlink" href="#presentations" title="Link to this heading">#</a></h3>
+<p>Along with the project reports, Students will be expected to present
+their projects in two formats. For the first project, this will be a
+brief presentation to the class discussing the deconstruction and
+analysis of the student’s chosen product. The second presentation will
+be a poster session open to the general public where students will
+discuss their final project deconstruction and analysis.</p>
+</section>
+<section id="weekly-reflections">
+<h3>Weekly Reflections<a class="headerlink" href="#weekly-reflections" title="Link to this heading">#</a></h3>
+<p>One of the main purposes of this course is to provide a space for
+students to reflect on their learning, and how they will use the content
+learned in personal projects and future applications. Students will
+conduct a promoted weekly reflection where they will discuss what they
+learned that week and where they see them using the content in the
+future, or not using it for that matter.</p>
+</section>
+</section>
+<section id="due-dates">
+<h2>Due dates<a class="headerlink" href="#due-dates" title="Link to this heading">#</a></h2>
+<section id="journals-and-reports">
+<h3>Journals and Reports<a class="headerlink" href="#journals-and-reports" title="Link to this heading">#</a></h3>
+<p>Write-ups and reports are due at 11:59pm of the day of your lab,
+skipping the first week of the semester. There will be a 20% deduction
+for each 24 hours late, starting at 12:00AM the next day, including
+weekends.</p>
+<p>Late submissions for the final project report will not be accepted.</p>
+<p>Lab reports turned in after midnight after the due date will be
+considered late.</p>
+</section>
+</section>
+<section id="submission-policy">
+<h2>Submission Policy<a class="headerlink" href="#submission-policy" title="Link to this heading">#</a></h2>
+<p>It is the responsibility of the student to ensure that submissions into
+the grading platform are on time and successful. If a student is having
+issues submitting an assignment for whatever reason, they should reach
+out to their Graduate Instructor in a timely manner to explain their
+situation. Late submissions will be discussed on a case-by-case basis.</p>
+</section>
+<section id="regrades">
+<h2>Regrades<a class="headerlink" href="#regrades" title="Link to this heading">#</a></h2>
+<p>Requests for regrades must be made within one week of the grade in
+question begin returned to the student, and 24 hrs. After grades have
+been returned. Request made after this time will not be considered.</p>
+</section>
+<section id="cheating">
+<h2>Cheating<a class="headerlink" href="#cheating" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>All work submitted must be the students own.</p></li>
+<li><p>The student <strong>may not</strong> copy text or figures from the course manual.</p></li>
+<li><p>Use of material from past semesters will be considered cheating.</p></li>
+</ul>
+<p>All cases of cheating will result in a grade of <strong>zero</strong> on the
+assignment. Offense(s) may result in failing the course. Cheating may
+also be reported to the Office of the Dean of Students.</p>
+</section>
+<section id="large-language-models-ai-generative-models">
+<h2>Large Language Models/AI/Generative Models<a class="headerlink" href="#large-language-models-ai-generative-models" title="Link to this heading">#</a></h2>
+<p>As generative models continue to embed their uses into our regular
+technologies, it would be a disservice to fully deny the use of the tool
+in modern education. Instead, the discussion should revolve around using
+the tools properly and ethically. The below concepts should be followed
+when using generative models in this course:</p>
+<p>Effective Usage:</p>
+<ul class="simple">
+<li><p>Students are encouraged to use generative models to help brainstorm
+and organize thoughts. Especially for formal reports, generative
+models allow for multiple formats to be accessible in a short time
+period.</p></li>
+<li><p>Students are NOT permitted to use generative models to analyze data.
+This is a task that is expected to fully fall to the student. This
+is different than helping visually present data, as generative
+models can quickly provide multiple different ways to visually
+present data. It is still up to the student to determine the best
+way to present the data.</p></li>
+</ul>
+<p>Ethical Usage:</p>
+<ul class="simple">
+<li><p>Students must be transparent where and how they use generative
+models in this course.</p></li>
+<li><p>Students may generate up to 20% of a submission using generative
+models. This should be focused on formatting and thought collection.
+All data analysis must still be completed by the student.</p></li>
+<li><p>Students must acknowledge where they use generative models in their
+writing using a reference note discussing the usage. A URL must also
+be provided to link to the prompts and outputs of the generative
+model. For example, the FAQ for ChatGPT link sharing can be found at
+<a class="reference external" href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq">https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq</a>.</p></li>
+<li><p>Any writing or other submissions not explicitly identified as
+generated will be assumed as original to the student. Submitting
+generated work without identifying it as such will be considered a
+violation of Purdue’s academic integrity policy, specifically the
+violation of “submitting a document written by someone else but
+representing it as one’s own.” As in any situation where a student
+is using writing from another person without correctly referencing
+the original author, this would be considered a form of plagiarism.</p></li>
+</ul>
+<p>Generative models are still a developing technology, and how they are
+implemented in educational settings is still a divided topic of
+discussion, and can lead to grey areas on judgement. If a student is
+unsure on how much of their document is artificially generated, or if
+they are in violation of a policy, the student should reach out to Ben
+Manning at least 48 hours before their submission due date to receive
+guidance.</p>
+</section>
+<section id="grade-breakdown">
+<h2>Grade Breakdown<a class="headerlink" href="#grade-breakdown" title="Link to this heading">#</a></h2>
+<p>This course uses a weighted grade system. The weight of each section of
+the final grade is listed below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Category</p></th>
+<th class="head text-left"><p>Weight</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Journal Submissions</p></td>
+<td class="text-left"><p>50%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Weekly Reflections</p></td>
+<td class="text-left"><p>15%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Project Reports</p></td>
+<td class="text-left"><p>15%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Appliance Project Presentation</p></td>
+<td class="text-left"><p>10%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Final Project Poster Session</p></td>
+<td class="text-left"><p>10%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following grade cut-offs will be used in this course.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Percentage Range</p></th>
+<th class="head text-center"><p>Grade</p></th>
+<th class="head"><p></p></th>
+<th class="head text-left"><p>Percentage Range</p></th>
+<th class="head text-center"><p>Grade</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(100\%&gt;x\geq96\%\)</span></p></td>
+<td class="text-center"><p>A+</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(80\%&gt;x\geq76\%\)</span></p></td>
+<td class="text-center"><p>C+</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(96\%&gt;x\geq93\%\)</span></p></td>
+<td class="text-center"><p>A</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(76\%&gt;x\geq73\%\)</span></p></td>
+<td class="text-center"><p>C</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(93\%&gt;x\geq90\%\)</span></p></td>
+<td class="text-center"><p>A-</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(73\%&gt;x\geq70\%\)</span></p></td>
+<td class="text-center"><p>C-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(90\%&gt;x\geq86\%\)</span></p></td>
+<td class="text-center"><p>B+</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(70\%&gt;x\geq66\%\)</span></p></td>
+<td class="text-center"><p>D+</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(86\%&gt;x\geq83\%\)</span></p></td>
+<td class="text-center"><p>B</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(66\%&gt;x\geq63\%\)</span></p></td>
+<td class="text-center"><p>D</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(83\%&gt;x\geq80\%\)</span></p></td>
+<td class="text-center"><p>B-</p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(63\%&gt;x\geq60\%\)</span></p></td>
+<td class="text-center"><p>D-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-center"><p></p></td>
+<td><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(60\%&gt;x\)</span></p></td>
+<td class="text-center"><p>F</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="course-expectations">
+<h2>Course Expectations<a class="headerlink" href="#course-expectations" title="Link to this heading">#</a></h2>
+<section id="preparing-for-class">
+<h3>Preparing for Class<a class="headerlink" href="#preparing-for-class" title="Link to this heading">#</a></h3>
+<p>While there should be minimal work needed outside of the lab, students
+should review the devices and appliances being discussed that week to
+help move the lab forward efficiently.</p>
+</section>
+<section id="in-class">
+<h3>In Class<a class="headerlink" href="#in-class" title="Link to this heading">#</a></h3>
+<p>During lab you should perform each task of the experiment. Recording
+your work in your lab notebook as you go. Your lab notebook is proof
+that you performed the experiments.<br />
+<br />
+If you do not finish the experiment in class, you must complete it
+before the beginning of the next week’s experiment.</p>
+</section>
+<section id="after-class">
+<h3>After Class<a class="headerlink" href="#after-class" title="Link to this heading">#</a></h3>
+<p>After performing the experiment and gathering results, you will need to
+analyze the results and draw conclusions. Analyzing data should be done
+in tools such as MATLAB, Python NumPy, or any other numerical computing
+applications to make plots and compare results.<br />
+<br />
+Your analysis should always compare theoretical calculations with
+measured results and attempt to measure and describe the causes of
+error.</p>
+</section>
+<section id="office-hours">
+<h3>Office Hours<a class="headerlink" href="#office-hours" title="Link to this heading">#</a></h3>
+<p>Put Office Hours Here</p>
+</section>
+</section>
+<section id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Link to this heading">#</a></h2>
+<p>There are several dangers that can be encountered in an electronics
+laboratory. These include (but are not limited to):</p>
+<ul class="simple">
+<li><p>Shock</p></li>
+<li><p>Burns</p></li>
+<li><p>Mechanical injury</p></li>
+<li><p>Chemical exposure</p></li>
+</ul>
+<p>Be aware of these potential dangers and make every effort to avoid them.
+Violation of these rules may result in access privileges being revoked.
+There are cameras in the lab and we will review them as needed.<br />
+<br />
+Lab instructors hold the responsibility of ensuring the lab is in a safe
+working condition before the students use the area, and enforce proper
+safety etiquette in the lab. If students are intentionally unsafe in the
+lab, encouraging unsafe behavior, or are continuing unsafe behavior
+after being told to cease the behavior, the student will be removed from
+the lab, resulting in a failing grade for that week’s lab. If multiple
+occurrences of this behavior continue, more severe consequences can be
+discussed. These additional consequences can include but are not limited
+to:</p>
+<ul class="simple">
+<li><p>Failing of the course</p></li>
+<li><p>Reports to student advisor</p></li>
+<li><p>Reports to campus and local law enforcement</p></li>
+</ul>
+<section id="equipment-safety-equipment-safety-unnumbered">
+<h3>Equipment Safety {#equipment-safety .unnumbered}<a class="headerlink" href="#equipment-safety-equipment-safety-unnumbered" title="Link to this heading">#</a></h3>
+<p>The benchtop equipment that is used in this lab is very expensive, and
+can be damaged if not used properly. If a student is found intentionally
+misusing the equipment, the same consequences can be issued as stated
+above for unsafe actions in the lab in addition to putting a hold on a
+student account until payment is made to replace any damaged equipment.<br />
+<br />
+It is recommended students use the provided desktop computer in the lab
+when using the benchtop equipment. Students use their own personal
+devices such as laptops at their own risk when using the benchtop
+equipment. For example, If the final project is not made correctly,
+there is a chance of surges flowing back to the computer through the
+audio port of the computer, which can fry the audio port, motherboard
+and power supply unit.</p>
+</section>
+</section>
+<section id="questions-or-issues">
+<h2>Questions or issues<a class="headerlink" href="#questions-or-issues" title="Link to this heading">#</a></h2>
+<p>If you are in doubt about any section of this syllabus or the grading of
+the course, ask your TA. If you are dissatisfied with any aspect of the
+content or teaching of this course please inform your TA or the course
+coordinator Ben Manning (<a class="reference external" href="mailto:btmannin&#37;&#52;&#48;purdue&#46;edu">btmannin<span>&#64;</span>purdue<span>&#46;</span>edu</a>).</p>
+</section>
+<section id="purdue-honor-pledge">
+<h2>Purdue honor pledge<a class="headerlink" href="#purdue-honor-pledge" title="Link to this heading">#</a></h2>
+<p>Purdue’s Honor Pledge was developed by students to advance a supportive
+environment that promotes academic integrity and excellence. It is
+intended that this pledge inspires Boilermakers of all generations to
+stay “on track” to themselves and their University. We encourage you to
+make this pledge. The pledge is:</p>
+<blockquote>
+<div><p>“As a boilermaker pursuing academic excellence, I pledge to be honest
+and true in all that I do. Accountable together - we are Purdue.”</p>
+</div></blockquote>
+<p>You may find more information at
+<a class="reference external" href="https://www.purdue.edu/provost/teachinglearning/honor-pledge.html">https://www.purdue.edu/provost/teachinglearning/honor-pledge.html</a></p>
+</section>
+<section id="caps">
+<h2>CAPS<a class="headerlink" href="#caps" title="Link to this heading">#</a></h2>
+<p>CAPS Information: Purdue University is committed to advancing the mental
+health and well-being of its students. If you or someone you know is
+feeling overwhelmed, depressed, and/or in need of support, services are
+available. For help, such individuals should contact Counseling and
+Psychological Services (CAPS) at (765)494-6995 and
+<a class="reference external" href="http://www.purdue.edu/caps/">http://www.purdue.edu/caps/</a> during and after hours, on weekends and
+holidays, or through its counselors physically located in the Purdue
+University Student Health Center (PUSH) during business hours.</p>
+</section>
+<section id="non-discrimination">
+<h2>Non discrimination<a class="headerlink" href="#non-discrimination" title="Link to this heading">#</a></h2>
+<p>Purdue University is committed to maintaining a community which
+recognizes and values the inherent worth and dignity of every person;
+fosters tolerance, sensitivity, understanding, and mutual respect among
+its members; and encourages each individual to strive to reach his or
+her own potential. In pursuit of its goal of academic excellence, the
+University seeks to develop and nurture diversity. The University
+believes that diversity among its many members strengthens the
+institution, stimulates creativity, promotes the exchange of ideas, and
+enriches campus life. Purdue’s nondiscrimination policy can be found at:
+<a class="reference external" href="http://www.purdue.edu/purdue/ea_eou_statement.html">http://www.purdue.edu/purdue/ea_eou_statement.html</a>.</p>
+</section>
+<section id="students-with-documented-disabilities">
+<h2>Students with documented disabilities<a class="headerlink" href="#students-with-documented-disabilities" title="Link to this heading">#</a></h2>
+<p>The Disability Resource Center (DRC) is a resource for students and
+instructors. Students may present a “Letter of Accommodation” at any
+point in the semester. Should you have questions about accommodations,
+please contact the DRC at: 494-1247 or <a class="reference external" href="mailto:drc&#37;&#52;&#48;purdue&#46;edu">drc<span>&#64;</span>purdue<span>&#46;</span>edu</a>. In many cases
+the DRC can partner with you to develop inclusive teaching strategies
+that benefit all students in your class</p>
+</section>
+<section id="academic-integrity">
+<h2>Academic integrity<a class="headerlink" href="#academic-integrity" title="Link to this heading">#</a></h2>
+<p>Academic integrity is one of the highest values that Purdue University
+holds. Individuals are encouraged to alert university officials to
+potential breeches of this value by either emailing
+<a class="reference internal" href="#mail:integrity&#64;purdue.edu"><span class="xref myst">integrity&#64;purdue.edu</span></a> or by calling
+765-494-8778. While information may be submitted anonymously, the more
+information that is submitted provides the greatest opportunity for the
+university to investigate the concern.</p>
+</section>
+<section id="campus-emergencies">
+<h2>Campus emergencies<a class="headerlink" href="#campus-emergencies" title="Link to this heading">#</a></h2>
+<p>In the event of a major campus emergency, course requirements,
+deadlines, and grade weights are subject to change. In case of such an
+event, information will be provided via Piazza and email.Relevant
+changes to this course will be posted onto the course website or can be
+obtained by contacting the instructors or TAs via email or phone. You
+are expected to read your &#64;purdue.edu email on a frequent basis. A link
+to Purdue’s Information on Emergency Preparation and Planning:
+<a class="reference external" href="https://www.purdue.edu/ehps/emergency-preparedness/">https://www.purdue.edu/ehps/emergency-preparedness/</a><br />
+This website covers topics such as Severe Weather Guidance, Emergency
+Plans, and a place to sign up for the Emergency Warning Notification
+System. It is encouraged for students to download and review the
+Emergency Preparedness for Classrooms document.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to ECE39595!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="process.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Procedure for Reverse Engineering Electric Components</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructors">Instructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-disclosure">Research Disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-material">Required Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-schedule">Course Schedule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-policies">Course Policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#piazza">Piazza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments">Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-journal">Lab Journal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reports">Reports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentations">Presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-reflections">Weekly Reflections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-dates">Due dates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#journals-and-reports">Journals and Reports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-policy">Submission Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regrades">Regrades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheating">Cheating</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#large-language-models-ai-generative-models">Large Language Models/AI/Generative Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-breakdown">Grade Breakdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-expectations">Course Expectations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-for-class">Preparing for Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class">In Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-class">After Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">Office Hours</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety">Safety</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment-safety-equipment-safety-unnumbered">Equipment Safety {#equipment-safety .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-or-issues">Questions or issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purdue-honor-pledge">Purdue honor pledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caps">CAPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-discrimination">Non discrimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-with-documented-disabilities">Students with documented disabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic integrity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#campus-emergencies">Campus emergencies</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben Manning
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
