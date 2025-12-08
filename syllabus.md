@@ -1,3 +1,7 @@
+---
+layout: page
+title: Syllabus
+---
 # ECE 39595: Applications of ECE through Reverse Engineering
 *Spring 2026*
 Last Modified: 2025-12-03
@@ -88,10 +92,10 @@ remain confidential.
         $\approx\$15$)](https://www.walmart.com/ip/Hyper-Tough-77-Piece-Precision-Tool-Kit-with-Magnetic-Screwdriver-Standard-Size-Bits-and-Case-New-Condition/909383908?wmlspartner=wlpa&selectedSellerId=0)
 
     -   [Performax (At Menards,
-        $\approx\$18$)](https://www.menards.com/main/tools/hand-tools/screwdrivers-nut-drivers-sets/performax-reg-phone-repair-precision-screwdriver-set-109-piece/px-3036/p-1642874304166880-c-9158.htm?exp=false)
+        $\approx\$20$)](https://www.menards.com/main/tools/hand-tools/screwdrivers-nut-drivers-sets/performax-reg-phone-repair-precision-screwdriver-set-109-piece/px-3036/p-1642874304166880-c-9158.htm?exp=false)
 
     -   [iFixit (online)
-        $\approx\$30$](https://www.menards.com/main/electrical/electrical-tools-accessories/electrical-hand-tools/performax-reg-electronics-repair-tool-set-52-piece/65323/p-1463764640723-c-6455.htm?exp=false)
+        $\approx\$30$](https://www.ifixit.com/products/essential-electronics-toolkit)
 
 -   Handheld Digital Multimeter.
 
@@ -347,7 +351,7 @@ The following grade cut-offs will be used in this course.
 
 |Percentage Range| Grade||Percentage Range| Grade|
 |:---|:---:|---|:---|:---:|
-|$100\%>x\geq96\%$| A+||$80\%>x\geq76\%$| C+|
+|$100\%>x\geq96\%$| A+*||$80\%>x\geq76\%$| C+|
 |$96\%>x\geq93\%$| A||$76\%>x\geq73\%$| C|
 | $93\%>x\geq90\%$| A-||$73\%>x\geq70\%$| C-|
 |$90\%>x\geq86\%$| B+||$70\%>x\geq66\%$ |D+|
@@ -355,7 +359,7 @@ The following grade cut-offs will be used in this course.
 |$83\%>x\geq80\%$| B-||$63\%>x\geq60\%$| D-|
 | | ||$60\%>x$| F|
 
-
+\* A+ Grades will still appear as an "A" on a transcript
 ## Course Expectations
 
 ### Preparing for Class
