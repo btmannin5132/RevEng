@@ -2,7 +2,9 @@
 layout: page
 title: Syllabus
 ---
-# ECE 39595: Applications of ECE through Reverse Engineering
+# Syllabus
+
+**ECE 39595: Applications of ECE through Reverse Engineering**
 *Spring 2026*
 Last Modified: 2025-12-03
 
