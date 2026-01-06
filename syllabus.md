@@ -268,7 +268,7 @@ situation. Late submissions will be discussed on a case-by-case basis.
 ## Regrades
 
 Requests for regrades must be made within one week of the grade in
-question begin returned to the student, and 24 hrs. After grades have
+question being returned to the student, and 24 hrs. After grades have
 been returned. Request made after this time will not be considered.
 
 ## Cheating
