@@ -1,4 +1,7 @@
 # Electronic Troubleshooting
+Ben Manning, Purdue University
+
+Last Modified: 2026-01-06
 
 Effective troubleshooting is essential in reverse engineering, whether
 analyzing an unknown circuit or diagnosing a system's unexpected
@@ -37,7 +40,7 @@ Follow a logical sequence of questioning:
     trace on the PCB, disrupting power delivery.*
 
 By reaching the fifth **Why**, we have identified the root cause: a
-broken PCB trace. Rather than merely replacing components, we now
+broken PCB trace. Rather than replacing components, we now
 understand the need to inspect and repair PCB traces to restore
 functionality.
 
@@ -72,7 +75,7 @@ than simply assuming a faulty component.
 
 -   Prevents misdiagnosing issues by identifying the true cause.
 
--   Helps in systematically mapping unknown circuits and understanding
+-   Helps in mapping unknown circuits and understanding
     design flaws.
 
 -   Encourages logical thinking when reconstructing how a system was

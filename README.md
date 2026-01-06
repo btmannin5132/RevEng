@@ -1,5 +1,6 @@
 # RevEng
 Website for Electronics Reverse Engineering Course
+Course Site: https://btmannin5132.github.io/RevEng/
 
 # Licensing
 Code: All source code for the website (Md, HTML, CSS, JavaScript, etc.) is licensed under the MIT License (see LICENSE file for details).
