@@ -7,8 +7,11 @@ Before you move forward on this page, make sure you have put a good-faith effort
 ## Lightbulb Lab
 
 :::{dropdown}
+There is an IC on the board that you might not have expected, can you find the datasheet on it or similar chips?
 
-Hints for Lightbulb Lab
+Why must that IC be present as opposed to connecting the LEDs directly to power?
+
+What would happen if the capacitor were removed? How does the capacitor interact with the large resistor?
  
 :::
 
