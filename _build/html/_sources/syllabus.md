@@ -6,7 +6,10 @@ title: Syllabus
 
 **ECE 39595: Applications of ECE through Reverse Engineering**
 *Spring 2026*
+
 Last Modified: 2026-01-09
+
+This syllabus can be found at https://btmannin5132.github.io/RevEng/syllabus.html
 
 *This syllabus is subject to change*
 
