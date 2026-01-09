@@ -6,7 +6,7 @@ title: Syllabus
 
 **ECE 39595: Applications of ECE through Reverse Engineering**
 *Spring 2026*
-Last Modified: 2025-12-03
+Last Modified: 2026-01-09
 
 *This syllabus is subject to change*
 
@@ -310,6 +310,8 @@ Ethical Usage:
 -   Students must be transparent where and how they use generative
     models in this course.
 
+-   Students may not use AI/LLMs on their reflections.  These are not graded for spelling/grammar, instructors are only interested in the student's own thought process.
+
 -   Students may generate up to 20% of a submission using generative
     models. This should be focused on formatting and thought collection.
     All data analysis must still be completed by the student.
@@ -392,7 +394,7 @@ error.
 
 ### Office Hours
 
-Put Office Hours Here
+Ben Will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
 
 ## Safety
 
@@ -427,7 +429,7 @@ to:
 
 -   Reports to campus and local law enforcement
 
-### Equipment Safety {#equipment-safety .unnumbered}
+### Equipment Safety
 
 The benchtop equipment that is used in this lab is very expensive, and
 can be damaged if not used properly. If a student is found intentionally
