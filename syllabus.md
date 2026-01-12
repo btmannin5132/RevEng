@@ -251,7 +251,7 @@ future, or not using it for that matter.
 
 ### Journals and Reports
 
-Write-ups and reports are due at 11:59pm of the day of your lab,
+Write-ups and reports are due at 11:59pm of the day of your next lab,
 skipping the first week of the semester. There will be a 20% deduction
 for each 24 hours late, starting at 12:00AM the next day, including
 weekends.
