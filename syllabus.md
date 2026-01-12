@@ -19,6 +19,7 @@ This syllabus can be found at https://btmannin5132.github.io/RevEng/syllabus.htm
 |Course Instructor|   Ben Manning |    btmannin@purdue.edu|
 |Primary Research Investigator|  Jason Morphew  | jmorphew@purdue.edu |
 Teaching Assistant     |   Alex Valdes  |   valdesa@purdue.edu|
+|Additional Resource | Conner Hack | hackc@purdue.edu|
 
 ## Course Overview
 
@@ -397,7 +398,9 @@ error.
 
 ### Office Hours
 
-Ben Will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
+Ben will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
+
+Alex will have office hours in Potter 262 on Tuesdays from 3-4:30pm. Additional hours can be scheduled at request of students on Piazza or over email.
 
 ## Safety
 
