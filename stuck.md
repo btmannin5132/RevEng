@@ -19,6 +19,11 @@ What would happen if the capacitor were removed? How does the capacitor interact
 
 :::{dropdown}
 
-Hints for Thermostat Lab
+What component within the thermostat housing could be causing the thermostat to turn on and off with temperature?
+
+Why have modern thermostats moved away from analog temperature control to digital control?
+
+How does the temperature adjustment work on the analog thermostat? Why can't it be adjusted with buttons?
+
 
 :::
