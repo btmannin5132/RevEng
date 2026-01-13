@@ -510,7 +510,7 @@ that benefit all students in your class
 Academic integrity is one of the highest values that Purdue University
 holds. Individuals are encouraged to alert university officials to
 potential breeches of this value by either emailing
-[integrity@purdue.edu](mail:integrity@purdue.edu) or by calling
+integrity@purdue.edu or by calling
 765-494-8778. While information may be submitted anonymously, the more
 information that is submitted provides the greatest opportunity for the
 university to investigate the concern.

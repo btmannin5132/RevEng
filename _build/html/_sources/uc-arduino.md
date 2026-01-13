@@ -146,7 +146,7 @@ attached to all components.
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 const int buttonPin = 2;
 const int ledPin = 13;
 int buttonState = 0;
