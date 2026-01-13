@@ -84,7 +84,7 @@ its low cost and simplicity.
 If you do not have the Arduino IDE already, please download and install
 the environment. The Arduino IDE can be downloaded at not cost from
 Arduino LLC at
-[www.arduino.cc/en/software](www.arduino.cc/en/software).
+https://www.arduino.cc/software.
 
 Functionally, an Arduino has two primary functions that must be inside
 of every program that is uploaded to it. The **setup()** function runs
@@ -96,7 +96,7 @@ runs into an error that causes it to crash.
 
 Inside of the Arduino IDE, there are a variety of examples and libraries
 that come pre-installed to assist you with your project at hand.
-[arduino.cc](arduino.cc) also has a community tab with a forum and
+https://www.arduino.cc also has a community tab with a forum and
 project hub that can likely assist with whatever issues you may have.
 
 ### Advanced Microcontroller systems (AVRs)
@@ -187,7 +187,7 @@ Arduino.
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 const int potPin = A0;
 const int ledPin = 9;
 
@@ -222,7 +222,7 @@ Connect the 7-segment display to pins `D2` through `D8` using
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 const int segments[] = {2, 3, 4, 5, 6, 7, 8};
 
 const byte digitPatterns[10] = {
@@ -268,7 +268,7 @@ all components.
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -302,7 +302,7 @@ attached to all components.
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 const int in1Pin = 9;
 const int in2Pin = 10;
 const int enablePin = 11;
@@ -343,7 +343,7 @@ proper voltage and ground attached to all components.
 
 ### Sample Code
 
-``` {.objectivec language="C"}
+```cpp
 #include <Servo.h>
 
 Servo myServo;

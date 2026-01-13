@@ -520,7 +520,7 @@ its low cost and simplicity.</p>
 <p>If you do not have the Arduino IDE already, please download and install
 the environment. The Arduino IDE can be downloaded at not cost from
 Arduino LLC at
-<a class="reference internal" href="#www.arduino.cc/en/software"><span class="xref myst">www.arduino.cc/en/software</span></a>.</p>
+<a class="reference external" href="https://www.arduino.cc/software">https://www.arduino.cc/software</a>.</p>
 <p>Functionally, an Arduino has two primary functions that must be inside
 of every program that is uploaded to it. The <strong>setup()</strong> function runs
 once and is used to initialize different parts of the microcontroller.
@@ -530,7 +530,7 @@ run indefinitely until it is halted by turning the device off, or it
 runs into an error that causes it to crash.</p>
 <p>Inside of the Arduino IDE, there are a variety of examples and libraries
 that come pre-installed to assist you with your project at hand.
-<a class="reference internal" href="#arduino.cc"><span class="xref myst">arduino.cc</span></a> also has a community tab with a forum and
+<a class="reference external" href="https://www.arduino.cc">https://www.arduino.cc</a> also has a community tab with a forum and
 project hub that can likely assist with whatever issues you may have.</p>
 </section>
 <section id="advanced-microcontroller-systems-avrs">
@@ -620,18 +620,18 @@ Arduino.</p>
 </section>
 <section id="id3">
 <h3>Sample Code<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int potPin = A0;
-const int ledPin = 9;
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">potPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
 
-void setup() {
-  pinMode(ledPin, OUTPUT);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {
-  int sensorValue = analogRead(potPin);
-  int outputValue = map(sensorValue, 0, 1023, 0, 255);
-  analogWrite(ledPin, outputValue);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sensorValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">potPin</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">outputValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">sensorValue</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1023</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">outputValue</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -656,30 +656,30 @@ components.</p>
 </section>
 <section id="id7">
 <h3>Sample Code<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int segments[] = {2, 3, 4, 5, 6, 7, 8};
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">segments</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
 
-const byte digitPatterns[10] = {
-  B00111111, B00000110, B01011011, B01001111, B01100110,
-  B01101101, B01111101, B00000111, B01111111, B01101111
-};
+<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">digitPatterns</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">B00111111</span><span class="p">,</span><span class="w"> </span><span class="n">B00000110</span><span class="p">,</span><span class="w"> </span><span class="n">B01011011</span><span class="p">,</span><span class="w"> </span><span class="n">B01001111</span><span class="p">,</span><span class="w"> </span><span class="n">B01100110</span><span class="p">,</span>
+<span class="w">  </span><span class="n">B01101101</span><span class="p">,</span><span class="w"> </span><span class="n">B01111101</span><span class="p">,</span><span class="w"> </span><span class="n">B00000111</span><span class="p">,</span><span class="w"> </span><span class="n">B01111111</span><span class="p">,</span><span class="w"> </span><span class="n">B01101111</span>
+<span class="p">};</span>
 
-void setup() {
-  for (int i = 0; i &lt; 7; i++) {
-    pinMode(segments[i], OUTPUT);
-  }
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">segments</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-void loop() {
-  displayDigit(3);  // Display number 3
-  delay(1000);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">displayDigit</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// Display number 3</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
 
-void displayDigit(int digit) {
-  byte pattern = digitPatterns[digit];
-  for (int i = 0; i &lt; 7; i++) {
-    digitalWrite(segments[i], bitRead(pattern, i));
-  }
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">displayDigit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">digit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitPatterns</span><span class="p">[</span><span class="n">digit</span><span class="p">];</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">segments</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">bitRead</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -703,18 +703,18 @@ all components.</p>
 </section>
 <section id="id11">
 <h3>Sample Code<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>#include &lt;Wire.h&gt;
-#include &lt;LiquidCrystal_I2C.h&gt;
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;LiquidCrystal_I2C.h&gt;</span>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address 0x27
+<span class="n">LiquidCrystal_I2C</span><span class="w"> </span><span class="nf">lcd</span><span class="p">(</span><span class="mh">0x27</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">  </span><span class="c1">// LCD address 0x27</span>
 
-void setup() {
-  lcd.begin();
-  lcd.backlight();
-  lcd.print(&quot;Hello, World!&quot;);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="n">backlight</span><span class="p">();</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {}
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
 </section>
@@ -738,25 +738,25 @@ attached to all components.</p>
 </section>
 <section id="id15">
 <h3>Sample Code<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
-<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>const int in1Pin = 9;
-const int in2Pin = 10;
-const int enablePin = 11;
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">in1Pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">in2Pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">enablePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
 
-void setup() {
-  pinMode(in1Pin, OUTPUT);
-  pinMode(in2Pin, OUTPUT);
-  pinMode(enablePin, OUTPUT);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">in1Pin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">in2Pin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">enablePin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {
-  digitalWrite(in1Pin, HIGH);
-  digitalWrite(in2Pin, LOW);
-  analogWrite(enablePin, 128);  // Set motor speed
-  delay(2000);
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1Pin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2Pin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">enablePin</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w">  </span><span class="c1">// Set motor speed</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
 
-  analogWrite(enablePin, 0);  // Stop motor
-  delay(1000);
-}
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">enablePin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Stop motor</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -780,20 +780,20 @@ proper voltage and ground attached to all components.</p>
 </section>
 <section id="id19">
 <h3>Sample Code<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
-<div class="highlight-{.objectivec notranslate"><div class="highlight"><pre><span></span>#include &lt;Servo.h&gt;
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Servo.h&gt;</span>
 
-Servo myServo;
+<span class="n">Servo</span><span class="w"> </span><span class="n">myServo</span><span class="p">;</span>
 
-void setup() {
-  myServo.attach(9);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">myServo</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {
-  myServo.write(0);  // Rotate servo to 0 degrees
-  delay(1000);
-  myServo.write(90);  // Rotate to 90 degrees
-  delay(1000);
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">myServo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Rotate servo to 0 degrees</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">myServo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span><span class="w">  </span><span class="c1">// Rotate to 90 degrees</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
