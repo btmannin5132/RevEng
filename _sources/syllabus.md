@@ -19,6 +19,7 @@ This syllabus can be found at https://btmannin5132.github.io/RevEng/syllabus.htm
 |Course Instructor|   Ben Manning |    btmannin@purdue.edu|
 |Primary Research Investigator|  Jason Morphew  | jmorphew@purdue.edu |
 Teaching Assistant     |   Alex Valdes  |   valdesa@purdue.edu|
+|Additional Resource | Conner Hack | hackc@purdue.edu|
 
 ## Course Overview
 
@@ -250,7 +251,7 @@ future, or not using it for that matter.
 
 ### Journals and Reports
 
-Write-ups and reports are due at 11:59pm of the day of your lab,
+Write-ups and reports are due at 11:59pm of the day of your next lab,
 skipping the first week of the semester. There will be a 20% deduction
 for each 24 hours late, starting at 12:00AM the next day, including
 weekends.
@@ -397,7 +398,9 @@ error.
 
 ### Office Hours
 
-Ben Will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
+Ben will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
+
+Alex will have office hours in Potter 262 on Tuesdays from 3-4:30pm. Additional hours can be scheduled at request of students on Piazza or over email.
 
 ## Safety
 
