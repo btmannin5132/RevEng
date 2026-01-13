@@ -146,7 +146,7 @@ attached to all components.
 
 ### Sample Code
 
-```cpp
+``` 
 const int buttonPin = 2;
 const int ledPin = 13;
 int buttonState = 0;
@@ -187,7 +187,7 @@ Arduino.
 
 ### Sample Code
 
-```cpp
+``` 
 const int potPin = A0;
 const int ledPin = 9;
 
@@ -222,7 +222,7 @@ Connect the 7-segment display to pins `D2` through `D8` using
 
 ### Sample Code
 
-```cpp
+``` 
 const int segments[] = {2, 3, 4, 5, 6, 7, 8};
 
 const byte digitPatterns[10] = {
@@ -268,7 +268,7 @@ all components.
 
 ### Sample Code
 
-```cpp
+``` 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -302,7 +302,7 @@ attached to all components.
 
 ### Sample Code
 
-```cpp
+``` 
 const int in1Pin = 9;
 const int in2Pin = 10;
 const int enablePin = 11;
@@ -343,7 +343,7 @@ proper voltage and ground attached to all components.
 
 ### Sample Code
 
-```cpp
+``` 
 #include <Servo.h>
 
 Servo myServo;
