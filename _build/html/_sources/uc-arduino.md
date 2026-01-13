@@ -449,6 +449,8 @@ micorcontrollers that are commercially available quite regularly.
 
     -   New versions being released with a lot of different
         functionality
+    
+    - Ideally, this page will also have Pico tutorials too.
 
     Cons:
 
