@@ -42,14 +42,14 @@ For this course, most often you will encounter transistors being used as a switc
 ### H Bridge
 An H bridge, named after the H like shape created by the transistors, is a transistor array that can be used to create time varying signals with positive and negative components. 
 <p align='center'>
-<img src = "/images/H-Bridge.png" width = "500">
+<img src = "../images/H-Bridge.png" width = "500">
 </p>
 
 When transistors 1 and 4 are turned on, 2 and 3 are turned off, creating only one path through the circuit, creating a positive voltage drop across the resistor load. When 2 and 3 are on, and 1 and 4 are off, a negative voltage is dropped across the load, creating a negative segment to the output signal. When controlled precisely, specific wave shapes, like a sine wave, can be created.
 ### Current Mirror
 A current mirror, sometimes a current follower, is a specific transistor circuit that utilizes at least two transistors. One transistor has the input and gate/base connected with the input calibrated to supply a specific amount of current. This connection will bias the transistor to output the specific current, here shown as IREF, through M1. M2 has it's gate tied to the gate of M1, allowing M2 to be set to a matching current throughput. 
 <p align='center'>
-<img src = "/images/Current-Mirror.png" width = "500">
+<img src = "../images/Current-Mirror.png" width = "500">
 </p>
 
 Current mirrors are used to control the output current of a system regardless fo the load attached to the M2 transistor. This system can be utilized with multiple transistors in parallel to create current multipliers, common in IC design to create current gain.  
@@ -73,19 +73,19 @@ When dealing with high power devices, thermal regulation is a serious considerat
 ## The Op Amp
 Op-amps, or operational amplifiers, are the Swiss Army Knife of electronics. Op amps utilize two input ports, a non-inverting (+) and an inverting input (-) and drive the output high or low depending on the voltage levels at each input. If the inverting input is larger, the output is driven low, and if the non-inverting is larger then the output is driven high. This op-amp setup is used to compare different signals and create binary outputs of high and low based on the changing of the input conditions. 
 <p align='center'>
-<img src = "/images/OpAmp.png" width = "500">
+<img src = "../images/OpAmp.png" width = "500">
 </p>
 
 Another use for op-amps are as gain steps. Utilizing a feedback loop, or a loop connecting the output to the inverting or non-inverting input through some passive component, a deterministic gain can be achieved on the output, allowing for signal amplification. 
 These can also be used with capacitors in the loop to create differentiating or integrating gains, useful in control systems. 
 <p align='center'>
-<img src = "/images/InvertingOpAmp.png" width = "500">
+<img src = "../images/InvertingOpAmp.png" width = "500">
 </p>
 
 ## Low Pass Filters
 Low pass filters are a tool used in almost every device to smooth out a waveform. Low pass filters work by passing a time variable signal through a resistor and capacitor in series, causing the higher frequency signals to be attenuated, or decreased in amplitude, due to the capacitor decrease it's impedance as freqency increases. 
 <p align='center'>
-<img src = "/images/LowPassFilter.png" width = "500">
+<img src = "../images/LowPassFilter.png" width = "500">
 </p>
 
 Low pass filters are used in many places, often as a step after a diode rectifier, allowing the rectified signal to be even closer to a DC signal. They are also used to remove high frequency noise from an information signal to avoid artifacts in the output. 
