@@ -400,7 +400,7 @@ error.
 
 Ben will have office hours in ARMS 1224 on Wednesdays from 2-3pm.  Location may change later in semester.
 
-Alex will have office hours in Potter 262 on Tuesdays from 3-4:30pm. Additional hours can be scheduled at request of students on Piazza or over email.
+Alex will have office hours in Potter B053 on Tuesdays from 3-4:30pm. Additional hours can be scheduled at request of students on Piazza or over email.
 
 ## Safety
 
