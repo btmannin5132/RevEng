@@ -15,7 +15,7 @@ Approaching the end of the reverse engineering course, we have explored a lot of
 # The Project
 Your task for this project is to reverse engineer and document a device of your choosing, preferably a device that you use fairly regularly. THere are veyr few limitaitons on what you can explore in this project, but ehre are a few expectations of the device which are listed below. 
 
-The device should have at least 3 of teh listed functions below:
+The device should have at least 3 of the listed functions below:
 - Battery powered
 - USB or other computer connection
 - Capacitive buttosn (they do not "press down" or "click")
@@ -36,7 +36,7 @@ Due to safety reasons, devices with the below operations/components will not be 
 - Heating devices exceeding 100&deg;C (boiling point of water)(No 3D printers, or at least not using the extruder. Other CNC machiens are okay (that are NOT mentioned below))
 - High torque/high RPM motors (such as electric yard tools, lathes, routers...)
 - Rotating/oscillating blades (saws and other powered cutting tools)
-If you would want to verify a devcie before the project, please discuss with the instructor first. 
+If you are interested in dissecting a devcie, but are unsure if it meets the above requirements, or may fall into the un-permitted areas, please discuss with the instructor first. 
 ## Deliverables
 There will be two main deliverables for this project that will focus on two forms of technical communication: a technical report in the form of a data sheet and a technical presentation.
 ### Datasheet (7.5% of final grade)
