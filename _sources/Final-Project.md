@@ -65,7 +65,7 @@ Making an academic poster may be new to you, if so, you should utilize the poste
 
 #### Example Posters
 <p align='center'>
-<img src = "_static/images/ExampleResearchPoster.png" width = "500">
+<img src = "_static/images/ExampleResearchPoster.png">
 </p>
 
 If you have any questions on poster design, some resources are available through [Purdue OWL](https://owl.purdue.edu/owl/general_writing/common_writing_assignments/research_posters/research_poster_overview%20.html) or [Purdue Libraries](https://guides.lib.purdue.edu/posters).
