@@ -72,7 +72,7 @@ If you have any questions on poster design, some resources are available through
 ### About the Deliverables
 Taking a look at the rubrics below will show that the content asked for in each deliverable is very similar, which is true.  In fact, the first five categories of the rubrics are nearly identical except for the grade weights.  The main difference between the deliverables will be how the content is presented.  The datasheet should focus on the in-depth technical information, whereas the poster should be more of an overview of the technical data with room for discussion and questions.  While the formatting of the datasheet will likely look fairly similar between student submissions, the poster can, and should be unique to the presenter, their preferred presenting style, and should allow for the presenter's enthusiasm to be present and engaging.
 
-# Rubric
+# Datasheet Rubric
  | **Category** | **Exceeds Expectations**| **Meets Expectations** | **Approaching Expectations** | **Not Meeting Expectations**|
 |:---|:---|:---|:---|:---|
 |**Introduction<br>(10 pts)**|Provides an in-depth, engaging overview of the appliance, its significance, and objectives, demonstrating exceptional clarity.|   Clearly describes the appliance, provides context, states objective, and defines scope.| Missing one or two elements, or descriptions are vague.| Lacks description, context, objective, or scope.|
@@ -84,7 +84,7 @@ Taking a look at the rubrics below will show that the content asked for in each 
  | **Presentation & Formatting<br>(5 pts)**|   Exceptionally well-structured, polished, and highly professional writing.|Well-organized, free of grammar/spelling errors, professional writing. |    Some organization/grammar issues, but still understandable. | Poorly structured, many errors.|
   |**References & Citations<br>(5 pts)**| High-quality sources, consistent format (IEEE, APA).|      Some citation errors or weak |No citations or improper formatting.|
 
-### Presentation Rubric
+# Presentation Rubric
 
  | **Category** | **Exceeds Expectations**| **Meets Expectations** | **Approaching Expectations** | **Not Meeting Expectations**|
 |:---|:---|:---|:---|:---|
