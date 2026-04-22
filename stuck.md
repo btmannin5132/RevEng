@@ -13,7 +13,7 @@ Why must that IC be present as opposed to connecting the LEDs directly to power?
 
 What would happen if the capacitor were removed? How does the capacitor interact with the large resistor?
 
-Need a bit more of a push? Check out this link it should help https://hackaday.com/2021/05/27/investigating-a-new-chip-in-a-minimalist-led-lamp/
+Need a bit more of a push? Check out this link it should help: [Lightbulb Teardown](https://hackaday.com/2021/05/27/investigating-a-new-chip-in-a-minimalist-led-lamp/)
  
 :::
 

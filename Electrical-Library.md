@@ -5,9 +5,9 @@ Last Modified: 2026-01-23
 Given that this course has only 20001 and 20007 as prerequisites, this page will cover any additional content that could be useful for your lab content. All of this content is designed to help you fill in gaps and get you investigating further into your devices, so many details are glossed over or simplified for a working understanding rather than an in depth explanation of these devices. 
 # Semiconductors
 ## How to Read an IC
-ICs, or integrated circuits, are prepackaged circuits that will be used in every electronic device. When working around ICs, it's important to be able to identify which pins are where to better understand the circuit. Below is an image showing how ICs are labeled so you can better count the pins on your ICs. 
+ICs, or integrated circuits, are prepackaged circuits that will be used in every electronic device. When working around ICs, it's important to be able to identify which pins are where to better understand the circuit. Below is an image showing how ICs are labeled so you can better count the pins on your ICs. Start at the top left (based on the notch) and count down then across then back up. 
 <p align ="center">
-<img src = "https://content.instructables.com/F1B/VUJ8/IQPFD8K7/F1BVUJ8IQPFD8K7.png?auto=webp&fit=bounds&frame=1&height=1024&width=1024" width = "500">
+<img src = "https://content.instructables.com/F1B/VUJ8/IQPFD8K7/F1BVUJ8IQPFD8K7.png?auto=webp&fit=bounds&frame=1&height=1024&width=1024" width = "500" alt = "A graphic showing a 16 pin chip describing the counting direction">
 
 Image Source: Instructables
 </p>
@@ -23,15 +23,14 @@ Transistors are the backbone of modern technology. While they are what make micr
 ### MOSFET
 The MOSFET, or Metal-Oxide semiconductor field effect transistor is a transistor composed of a gate, drain and source. The gate is the terminal where a control voltage will allow conduction through the transistor, with the drain and source being the path the current will travel through. There are P type and N type MOSFETs. P type allow conduction with a low gate voltage, while N type require a high gate voltage. 
 <p align='center'>
-<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20240710171251/MOSFET-SYMBOL.png" width = "500">
-
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20240710171251/MOSFET-SYMBOL.png" width = "500", alt = "Graphic showing the terminals of NMOS and PMOS MOSFETS">
 Image source: GeeksforGeeks
 </p>
 
 ### BJT
 A BJT, or bipolar junction transistor, is a transistor that is composed of the base, the terminal where the controlled current goes to adjust current conduction through the device, the emitter, and the collector. NPN BJTs are designed to allow current flow from collector to emitter and PNP are designed to allow current flow from emitter to collector. 
 <p align='center'>
-<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20240202183211/image-116.webp" width = "500">
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20240202183211/image-116.webp" width = "500", alt = "Graphic showing the terminals of NPN and PNP Bipolar Junction Transistors">
 
 Image Source:GeeksforGeeks
 </p>
@@ -42,14 +41,14 @@ For this course, most often you will encounter transistors being used as a switc
 ### H Bridge
 An H bridge, named after the H like shape created by the transistors, is a transistor array that can be used to create time varying signals with positive and negative components. 
 <p align='center'>
-<img src = "_static/images/HBridge.png" width = "500">
+<img src = "_static/images/HBridge.png" width = "500", alt = "Basic diagram showing a 4 NMOS H-Bridge configured with a resistive load>
 </p>
 
 When transistors 1 and 4 are turned on, 2 and 3 are turned off, creating only one path through the circuit, creating a positive voltage drop across the resistor load. When 2 and 3 are on, and 1 and 4 are off, a negative voltage is dropped across the load, creating a negative segment to the output signal. When controlled precisely, specific wave shapes, like a sine wave, can be created.
 ### Current Mirror
 A current mirror, sometimes a current follower, is a specific transistor circuit that utilizes at least two transistors. One transistor has the input and gate/base connected with the input calibrated to supply a specific amount of current. This connection will bias the transistor to output the specific current, here shown as IREF, through M1. M2 has it's gate tied to the gate of M1, allowing M2 to be set to a matching current throughput. 
 <p align='center'>
-<img src = "_static/images/CurrentMirror.png" width = "500">
+<img src = "_static/images/CurrentMirror.png" width = "500", alt = "NMOS Current mirror with current source I Bias as the bias current>
 </p>
 
 Current mirrors are used to control the output current of a system regardless fo the load attached to the M2 transistor. This system can be utilized with multiple transistors in parallel to create current multipliers, common in IC design to create current gain.  
@@ -73,19 +72,20 @@ When dealing with high power devices, thermal regulation is a serious considerat
 ## The Op Amp
 Op-amps, or operational amplifiers, are the Swiss Army Knife of electronics. Op amps utilize two input ports, a non-inverting (+) and an inverting input (-) and drive the output high or low depending on the voltage levels at each input. If the inverting input is larger, the output is driven low, and if the non-inverting is larger then the output is driven high. This op-amp setup is used to compare different signals and create binary outputs of high and low based on the changing of the input conditions. 
 <p align='center'>
-<img src = "_static/images/OpAmp.png" width = "500">
+<img src = "_static/images/OpAmp.png" width = "500", alt="Op-Amp schematic simple with the Inverting and Non-Inverting inputs labeled and the output labaled
+">
 </p>
 
 Another use for op-amps are as gain steps. Utilizing a feedback loop, or a loop connecting the output to the inverting or non-inverting input through some passive component, a deterministic gain can be achieved on the output, allowing for signal amplification. 
 These can also be used with capacitors in the loop to create differentiating or integrating gains, useful in control systems. 
 <p align='center'>
-<img src = "_static/images/InvertingOpAmp.png" width = "500">
+<img src = "_static/images/InvertingOpAmp.png" width = "500", alt="Inverting Op-Amp schematic with a reference of ground and resistors of value R">
 </p>
 
 ## Low Pass Filters
 Low pass filters are a tool used in almost every device to smooth out a waveform. Low pass filters work by passing a time variable signal through a resistor and capacitor in series, causing the higher frequency signals to be attenuated, or decreased in amplitude, due to the capacitor decrease it's impedance as freqency increases. 
 <p align='center'>
-<img src = "_static/images/LowPassFilter.png" width = "500">
+<img src = "_static/images/LowPassFilter.png" width = "500", alt="Schematic of a capacitive low pass filter with resistor value of R and capacitor value of C">
 </p>
 
 Low pass filters are used in many places, often as a step after a diode rectifier, allowing the rectified signal to be even closer to a DC signal. They are also used to remove high frequency noise from an information signal to avoid artifacts in the output. 

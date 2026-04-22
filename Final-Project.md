@@ -18,15 +18,16 @@ Your task for this project is to reverse engineer and document a device of your 
 The device should have at least 3 of the listed functions below:
 - Battery powered
 - USB or other computer connection
-- Capacitive buttosn (they do not "press down" or "click")
+- Capacitive buttons (they do not "press down" or "click")
 - A screen or digital display
 - Motor/PWM device operation
 - Connects to the internet/Bluetooth (a "Smart" device)
 - Has a camera
 - Sensor input/environmental monitoring
-- Speaker outptu
+- Speaker output
 - Active cooling of a device
 - Clock
+
 Due to safety reasons, devices with the below operations/components will not be permitted to be explored for this project:
 - High voltage operations (if operation voltage exceeds 120VAC (Wall outlet voltage) or 24VDC). This includes:
     - Magnetrons (microwaves)
